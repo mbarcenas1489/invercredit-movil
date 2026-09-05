@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menulistview_eliminar"
+    android:title="Eliminar"></item>
+
+    <item android:id="@+id/menulistview_verDetalle"
+        android:title="Ver Detalle"
+        ></item>
+
+  <!--  <item android:id="@+id/menulistview_setmalo"
+        android:title="Establecer como Malo"
+        ></item>
+    <item android:id="@+id/menulistview_setbueno"
+        android:title="Quita como Malo"
+        ></item>
+        -->
+
+</menu>

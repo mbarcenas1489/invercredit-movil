@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:background="@drawable/shadow_item_recyclerview"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:fontFamily="@font/robotoregular"
+                android:id="@+id/tv_num_cuota"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_round"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_monto_pago"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/robotoregular"
+                android:text="Monto"
+                android:textColor="?attr/colorPrimaryVariant"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tv_num_cuota"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:fontFamily="@font/robotoregular"
+                android:id="@+id/tv_fecha_pago"
+                android:layout_width="97dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="16dp"
+                android:text="Fecha"
+                android:textColor="@android:color/background_dark"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/tv_monto_pago"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_pagado_item"
+                android:layout_width="97dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/robotoregular"
+                android:text="0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/tv_fecha_pago"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_pendiente"
+                android:layout_width="97dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/robotoregular"
+                android:text="0"
+                android:textColor="@color/Rojo"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/tv_fecha_pago"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pagado_item" />
+
+            <ImageView
+                android:id="@+id/imgEstadoPago"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.fragment_opcion_nuevocredito">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#99000000"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardElevation="12dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#d9edf7"
+            
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_cliente_nuevo"
+                    android:layout_width="63dp"
+                    android:layout_height="49dp"
+                    android:layout_marginStart="92dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@drawable/ic_nuevo_cliente"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="80dp"
+                    android:text="Cliente Existente"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/img_cliente_existente"
+                    app:layout_constraintTop_toBottomOf="@+id/img_cliente_existente" />
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Nuevo Cliente"
+                    app:layout_constraintStart_toStartOf="@+id/img_cliente_nuevo"
+                    app:layout_constraintTop_toBottomOf="@+id/img_cliente_nuevo" />
+
+                <ImageView
+                    android:id="@+id/img_cliente_existente"
+                    android:layout_width="63dp"
+                    android:layout_height="49dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginEnd="104dp"
+                    android:src="@drawable/ic_cliente_existente"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Como quiere Crear el Credito"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+<!--
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView9"
+            android:layout_width="68dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="16dp"
+            android:cropToPadding="true"
+            android:paddingBottom="15dp"
+
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView47">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">-->
+
+        <!--  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

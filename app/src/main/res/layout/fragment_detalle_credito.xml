@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades.Cuotas.fragment.FragmentDetalleCredito">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="8dp"
+        android:background="#F8F6F5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".actividades.Activity_detallecredito"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCliente"
+                android:layout_width="376dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_nombre_detalle_credito"
+                        android:layout_width="345dp"
+                        android:layout_height="31dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Nombre"
+                        android:textColor="#040303"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_cedula_detalle_credito"
+                        android:layout_width="127dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="4dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_detalle_credito" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleCredito_Telefono"
+                        android:layout_width="168dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="4dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toEndOf="@+id/tv_cedula_detalle_credito"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_detalle_credito" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="376dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCliente">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvDetalleCredito_Direccion"
+
+                        android:layout_width="346dp"
+                        android:layout_height="64dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Direccion"
+                        android:textColor="#040303"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleCredito_TipoNegocio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Tipo de Negocio"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDetalleCredito_Direccion" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewDatosCreditos"
+                android:layout_width="376dp"
+                android:layout_height="218dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_monto_detalle_credito"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="100dp"
+                        android:text="C$ 0.0"
+                        android:textColor="#0C4F85"
+                        android:textSize="34sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_interes_detalle_credito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="64dp"
+                        android:layout_marginTop="16dp"
+                        android:text="0%"
+                        android:textColor="#040303"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_monto_detalle_credito" />
+
+                    <TextView
+                        android:id="@+id/tv_monto_interes_detalle_credito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="64dp"
+                        android:text="0"
+                        android:textColor="#040303"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_monto_detalle_credito" />
+
+                    <TextView
+                        android:id="@+id/tv_monto_pagar_detalle_credito"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_marginStart="110dp"
+                        android:layout_marginTop="58dp"
+                        android:layout_marginEnd="104dp"
+                        android:text="C$ 0"
+                        android:textColor="#009688"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_monto_detalle_credito" />
+
+                    <TextView
+                        android:id="@+id/tvFechaInicial"
+                        android:layout_width="117dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvFechaFin"
+                        android:layout_width="118dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="163dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="60dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_abonado_detalle_credito1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Abonado"
+                        android:textColor="#040303"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_abonado_detalle_credito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="8dp"
+                        android:text="0.0"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_abonado_detalle_credito1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="163dp"
+                android:layout_height="92dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Pendiente"
+                        android:textColor="#040303"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_pendiente_detalle_credito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginTop="8dp"
+                        android:text="0.0"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="118dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_corner"
+                android:paddingLeft="30dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Cliente"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="275dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corner"
+                android:paddingLeft="30dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Informacion del Credito"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="224dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_corner"
+                android:paddingLeft="30dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="Estado del Credito"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewDatosCreditos" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="16dp"
+                android:text="Estado :"
+                android:textColor="#040303"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2"></TextView>
+
+            <TextView
+                android:id="@+id/tv_estado_detalle_credito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/textView27"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

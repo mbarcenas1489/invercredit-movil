@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades.Activity_Recaudacionpordia">
+
+
+
+    <ListView
+        android:id="@+id/listaRecaudacion"
+        android:layout_width="398dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_total_valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vermoras" />
+
+    <EditText
+        android:id="@+id/et_fechaRecaudacion"
+        android:layout_width="181dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="4dp"
+        android:hint="Fecha"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/et_cantidadcuotasrecaudadas"
+        android:layout_width="58dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/verde"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/et_fechaRecaudacion" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Recaudado:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/et_cantidadcuotasrecaudadas"
+        app:layout_constraintTop_toBottomOf="@+id/et_fechaRecaudacion" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="# Cuotas:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_fechaRecaudacion" />
+
+    <TextView
+        android:id="@+id/et_montorecaudado"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/verde"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/et_fechaRecaudacion" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="673dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="618dp" />
+
+    <TextView
+        android:id="@+id/tv_vermoras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:text="Moras"
+        android:textColor="#009688"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_vercuotas_creditosmalos"
+        app:layout_constraintTop_toBottomOf="@+id/et_montorecaudado" />
+
+    <TextView
+        android:id="@+id/tv_creditos_buenos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Creditos Buenos"
+        android:textColor="#009688"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_cuotas111"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/tv_vercuotas_creditosmalos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="Malos"
+        android:textColor="#009688"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tv_vermoras"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toEndOf="@+id/tv_creditos_buenos"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="14dp"
+        android:text="TextView"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_num_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="14dp"
+        android:text="TextView"
+        android:textColor="@color/verde"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_num" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="13dp"
+        android:text="Total:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_total_valor" />
+
+    <TextView
+        android:id="@+id/tv_total_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="15dp"
+        android:text="TextView"
+        android:textColor="@color/verde"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cuotas111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Todas Cuotas"
+        android:textColor="#009688"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_cantidadcuotasrecaudadas" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

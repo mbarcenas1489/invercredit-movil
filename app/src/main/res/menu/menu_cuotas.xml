@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+   <!-- <item android:id="@+id/menu_agregarcuota"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_add1"
+        app:showAsAction="always"
+        />-->
+    <item android:id="@+id/menu_vermoras"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_mora1"
+
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/menu_ve_informacion_credito"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_cliente_existente"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/menu_buscarcuotasServidor"
+android:title="Buscar Cuotas en Servidor"
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/menu_EnviarcuotasServidor"
+        android:title="Enviar cuotas al servidor"
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        app:showAsAction="never"
+        />
+</menu>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <!--  <item android:id="@+id/menu_nuevo_credito"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_addcliente"
+        app:showAsAction="always"
+        />-->
+    <item android:id="@+id/menu_wifi"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_wifi"
+        app:showAsAction="always"
+        />
+      <item android:id="@+id/menu_cobrador_select"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_cobrador"
+        app:showAsAction="always"
+        />
+   <!-- <item android:id="@+id/menu_bluetooth"
+
+        android:orderInCategory="100"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:icon="@drawable/ic_bluetooth"
+        app:showAsAction="always"
+        />-->
+</menu>
