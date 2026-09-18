@@ -35,7 +35,6 @@ class fragment_Creditos_semanales : Fragment() {
 
   private lateinit var adap_listview: adaptador_cliente_semanal
 
-  var roott: View? = null
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
   }
@@ -159,16 +158,11 @@ class fragment_Creditos_semanales : Fragment() {
 
     } else {
 
-      //   var lcli=datospublicos.listacliente_room.filter { it.idcliente= }
 
       listafiltrada = datospublicoskt.listacompleta?.filter {
         it.nombre.toLowerCase().contains(charText.toLowerCase()) ||
           it.apellido.toLowerCase().contains(charText.toLowerCase())
-
-
       }?.toMutableList()!!
-      /*var adap = adaptador_cliente( listafiltrada)
-      recycle_vistacliente.adapter=adap*/
 
       var adap = adaptador_cliente_semanal(context, listafiltrada)
       binding.listviewClienteSemanal.adapter = adap
@@ -177,8 +171,6 @@ class fragment_Creditos_semanales : Fragment() {
   }
 
   fun getfecha(dias: Int, c: Calendar): String {
-    //val calendar = Calendar.getInstance()
-    //c.add(Calendar.DAY_OF_YEAR, dias)
 
     val year = c.get(Calendar.YEAR)
 
@@ -188,33 +180,16 @@ class fragment_Creditos_semanales : Fragment() {
     var month_string = ""
     if (day <= 9) {
       day_string = "0" + day.toString()
-    }
-    else {
+    } else {
       day_string = day.toString()
     }
     if (month <= 9) {
       month_string = "0" + month.toString()
-    }
-    else {
+    } else {
       month_string = month.toString()
     }
 
     return year.toString() + "-" + month_string + "-" + day_string
-  }
-
-  fun cambiar_formato(fecha: String): String {
-    var f = fecha.split('-')
-    var dia = f[0]
-    var mes = f[1]
-    var anyo = f[2]
-    val meses = arrayOf(
-      " ", "Enero", "Febrero", "Marzo", "Abril",
-      "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nobiembre", "Diciembre"
-    )
-
-    var mes_int = mes.toInt()
-    return dia + " " + meses[mes_int] + " " + anyo
-
   }
 
 }

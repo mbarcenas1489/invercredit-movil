@@ -1,7 +1,5 @@
 package com.example.creditosappandroidx.Api
 
-import android.content.Context
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.example.creditosappandroidx.Api.Interfaces.InterfaceCargarDatos
@@ -13,7 +11,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object CargarDatosService {
-  var idCobrador = 0
   private fun getRetrofit(): Retrofit {
 
     return Retrofit.Builder()
