@@ -102,7 +102,7 @@ class fragment_creditos_mensuales : Fragment() {
   fun filter() {
     var charText = text
     datospublicoskt.texto = text
-    charText = charText.toLowerCase()
+    charText = charText.lowercase()
 
     if (charText.length == 0 && listafiltrada.size == 0) {
       text = ""
@@ -115,8 +115,8 @@ class fragment_creditos_mensuales : Fragment() {
 
     } else {
       listafiltrada = datospublicoskt.listacompleta?.filter {
-        it.nombre.toLowerCase().contains(charText.toLowerCase()) ||
-        it.apellido.toLowerCase().contains(charText.toLowerCase())
+        it.nombre.lowercase().contains(charText.lowercase()) ||
+        it.apellido.lowercase().contains(charText.lowercase())
 
       }?.toMutableList()!!
 
@@ -135,7 +135,6 @@ class fragment_creditos_mensuales : Fragment() {
         val ultima_cuota = sqlite.Get_Ultima_Cuota(it.prestamoid)
         var calendar = Calendar.getInstance()
         if (ultima_cuota != null) {
-          //  Log.e("fecha1="+ultima_cuota.fecha,"Fecha2="+getfecha(0,calendar))
           if (datospublicoskt.fechaRangoMensual(ultima_cuota.fecha)) {
             it.cuota_completada = ultima_cuota.pendiente <= 0
             it.pago_cuota_dia = true

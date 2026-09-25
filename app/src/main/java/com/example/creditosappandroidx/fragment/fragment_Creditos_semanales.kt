@@ -145,7 +145,7 @@ class fragment_Creditos_semanales : Fragment() {
   fun filter() {
     var charText = text
     datospublicoskt.texto = text
-    charText = charText.toLowerCase()
+    charText = charText.lowercase()
 
     if (charText.length == 0 && listafiltrada.size == 0) {
       text = ""
@@ -160,8 +160,8 @@ class fragment_Creditos_semanales : Fragment() {
 
 
       listafiltrada = datospublicoskt.listacompleta?.filter {
-        it.nombre.toLowerCase().contains(charText.toLowerCase()) ||
-          it.apellido.toLowerCase().contains(charText.toLowerCase())
+        it.nombre.lowercase().contains(charText.lowercase()) ||
+          it.apellido.lowercase().contains(charText.lowercase())
       }?.toMutableList()!!
 
       var adap = adaptador_cliente_semanal(context, listafiltrada)

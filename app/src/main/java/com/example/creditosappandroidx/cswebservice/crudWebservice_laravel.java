@@ -134,6 +134,10 @@ public class crudWebservice_laravel {
     response.enqueue(new Callback<ResponseBody>() {
       @Override
       public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+        // La respuesta puede llegar cuando la pantalla ya se ha cerrado.
+        if (view == null || !view.isAttachedToWindow()) {
+          return;
+        }
         if (response.code() == 200) {
           Snackbar.make(view, "Hay connexion al servidor", Snackbar.LENGTH_LONG).show();
         } else {

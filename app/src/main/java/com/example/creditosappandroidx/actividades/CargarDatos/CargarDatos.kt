@@ -11,7 +11,6 @@ import com.example.creditosappandroidx.BuildConfig
 import com.example.creditosappandroidx.actividades.Cuotas.api.PlanesPagoService
 import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.creditocliente
-import com.example.creditosappandroidx.cswebservice.crudWebservice_laravel
 import com.example.creditosappandroidx.databinding.ActivityCargarDatosV2Binding
 import com.raizlabs.android.dbflow.sql.language.SQLite
 

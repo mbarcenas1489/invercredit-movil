@@ -142,7 +142,7 @@ class fragment_Creditos_quincenales : Fragment() {
   fun filter() {
     var charText = text
     datospublicoskt.texto = text
-    charText = charText.toLowerCase()
+    charText = charText.lowercase()
 
     if (charText.length == 0 && listafiltrada.size == 0) {
       text = ""

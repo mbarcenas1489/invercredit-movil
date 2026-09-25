@@ -19,10 +19,8 @@ import java.util.*
 object datospublicoskt {
   fun GetUrlServer(): String {
     return "http://" + ipServer + "/invercreditWeb_laravel8/public/";
-//    return "http://" + ipServer + "/invercreditWeb/public/";
   }
 
-  var id_cuota_nueva = -1;
 
   var context_cuotas_por_cliente: Context? = null
   var progressbar: View? = null
@@ -42,9 +40,7 @@ object datospublicoskt {
   var lista_solicitudes = mutableListOf<solicitud_credito>()
   var texto = ""
   var badge: BadgeDrawable? = null
-  var badge_diario: BadgeDrawable? = null
-  var badge_semanal: BadgeDrawable? = null
-  var badge_quincenal: BadgeDrawable? = null
+
 
   var badge_credito_diario: BadgeDrawable? = null
   var badge_credito_semanal: BadgeDrawable? = null
@@ -82,15 +78,6 @@ object datospublicoskt {
     idCobrador = id.toString()
   }
 
-  fun primer_dia_semana() {
-    val curr = Date()
-    val cal = Calendar.getInstance()
-    cal.time = curr
-    val currentDOW = cal[Calendar.DAY_OF_WEEK]
-    cal.add(Calendar.DAY_OF_YEAR, currentDOW * -1 + 1)
-    val formatter = SimpleDateFormat("dd/MM/yyyy")
-  }
-
   fun primer_dia_semana_calendar(): Calendar {
     val cal: Calendar =
       Calendar.getInstance()
@@ -98,10 +85,8 @@ object datospublicoskt {
     cal.clear(Calendar.MINUTE)
     cal.clear(Calendar.SECOND);
     cal.clear(Calendar.MILLISECOND);
-    // get start of this week in milliseconds
     cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
 
-    val formatter = SimpleDateFormat("yyyy/MM/dd")
     return cal;
   }
 
@@ -301,7 +286,6 @@ object datospublicoskt {
     cal.clear(Calendar.MINUTE)
     cal.clear(Calendar.SECOND);
     cal.clear(Calendar.MILLISECOND);
-    // get start of this week in milliseconds
     if (cal.get(Calendar.DAY_OF_WEEK) <= 15)
       cal.set(Calendar.DAY_OF_WEEK, 1);
     else
@@ -319,13 +303,6 @@ object datospublicoskt {
     val dateTime = simpleDateFormat.parse(fecha_cuota)
     val primerdia = primer_dia_quincena();
     val ultimo_dia = ultimo_dia_quincena();
-
-    Log.e(
-      simpleDateFormat.format(primerdia) + "=>" + simpleDateFormat.format(dateTime),
-      simpleDateFormat.format(
-        ultimo_dia
-      )
-    )
 
     return (primerdia.equals(dateTime) || primerdia.before(dateTime)) && (ultimo_dia.after(
       dateTime
