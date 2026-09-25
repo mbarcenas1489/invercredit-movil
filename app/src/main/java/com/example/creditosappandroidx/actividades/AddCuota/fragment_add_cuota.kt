@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.actividades.Cuotas.fragment.FragmentTabCuotas
 import com.example.creditosappandroidx.cswebservice.crudWebservice_laravel
 import com.example.creditosappandroidx.cswebservice.cuotas
@@ -20,7 +18,6 @@ import cswebservice.datospublicoskt
 import cswebservice.datospublicoskt.cuota_insertada
 import cswebservice.datospublicoskt.getfecha_format
 
-import java.time.LocalDateTime
 import java.util.*
 
 

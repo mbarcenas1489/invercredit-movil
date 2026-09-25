@@ -12,8 +12,6 @@ import com.example.creditosappandroidx.cssqlite.crudsqlite;
 import com.google.android.material.snackbar.Snackbar;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
-import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import okhttp3.ResponseBody;

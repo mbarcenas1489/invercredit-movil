@@ -1,6 +1,5 @@
 package com.example.creditosappandroidx.cswebservice;
 
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DateFormat;

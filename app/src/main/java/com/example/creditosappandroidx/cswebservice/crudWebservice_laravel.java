@@ -10,9 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 
-import com.example.creditosappandroidx.Api.CobradorService;
 import com.example.creditosappandroidx.R;
 import com.example.creditosappandroidx.actividades.login.loginActivity;
 import com.example.creditosappandroidx.cssqlite.crudsqlite;
@@ -28,7 +26,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import com.example.creditosappandroidx.Api.response.cuotasResponse;
 import com.example.creditosappandroidx.models.response.CuotasResponse;
 
 

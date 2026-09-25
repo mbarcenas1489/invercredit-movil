@@ -1,11 +1,7 @@
 package com.example.creditosappandroidx.actividades;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +15,6 @@ import com.example.creditosappandroidx.cswebservice.crudWebservice;
 import com.example.creditosappandroidx.cswebservice.crudWebservice_laravel;
 import com.example.creditosappandroidx.cswebservice.cspublic;
 import com.example.creditosappandroidx.cswebservice.cuotas;
-import com.example.creditosappandroidx.cswebservice.datospublicos;
-import com.example.creditosappandroidx.cswebservice.moras;
-import com.example.creditosappandroidx.cswebservice.network;
 
 import java.util.ArrayList;
 

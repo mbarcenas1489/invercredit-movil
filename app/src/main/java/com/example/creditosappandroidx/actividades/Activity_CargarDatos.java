@@ -1,10 +1,7 @@
 package com.example.creditosappandroidx.actividades;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Looper;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import com.example.creditosappandroidx.Api.CobradorService;
 import com.example.creditosappandroidx.R;
-import com.example.creditosappandroidx.actividades.Cuotas.api.PlanesPagoService;
 import com.example.creditosappandroidx.cssqlite.crudsqlite;
 import com.example.creditosappandroidx.cswebservice.creditocliente;
 import com.example.creditosappandroidx.cswebservice.crudWebservice;

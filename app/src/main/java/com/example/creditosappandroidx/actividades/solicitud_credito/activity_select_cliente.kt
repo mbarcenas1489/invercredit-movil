@@ -2,12 +2,10 @@ package com.example.creditosappandroidx.actividades.solicitud_credito
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.creditosappandroidx.Adaptadores.adaptador_select_cliente
 import com.example.creditosappandroidx.R
-import com.example.creditosappandroidx.databinding.ActivityMainBinding
 import com.example.creditosappandroidx.databinding.ActivitySelectClienteBinding
 import cswebservice.datospublicoskt
 

@@ -2,7 +2,6 @@ package com.example.creditosappandroidx.cswebservice;
 
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.creditosappandroidx.cssqlite.dbprestamo;
 import com.raizlabs.android.dbflow.annotation.Column;
@@ -15,7 +14,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 

@@ -4,12 +4,8 @@ package com.example.creditosappandroidx.Adaptadores
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.creditosappandroidx.R
-import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.solicitud_credito
 //import kotlinx.android.synthetic.main.item_solicitud.view.*
 //import org.jetbrains.anko.alert

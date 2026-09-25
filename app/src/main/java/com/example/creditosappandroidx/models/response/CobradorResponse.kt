@@ -1,5 +1,4 @@
 package com.example.creditosappandroidx.models.response
-import com.example.creditosappandroidx.models._PlanesPago
 import com.example.creditosappandroidx.models.cobrador
 import com.google.gson.annotations.SerializedName
 

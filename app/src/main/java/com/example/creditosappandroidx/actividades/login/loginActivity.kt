@@ -3,7 +3,6 @@ package com.example.creditosappandroidx.actividades.login
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.cswebservice.crudWebservice_laravel
 import com.example.creditosappandroidx.databinding.ActivityLoginBinding
 

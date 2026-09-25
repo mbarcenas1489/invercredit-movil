@@ -9,7 +9,6 @@ import com.example.creditosappandroidx.cswebservice.*
 import com.example.creditosappandroidx.databinding.ActivityCargaDatosLaravelBinding
 import com.google.android.material.snackbar.Snackbar
 import cswebservice.datospublicoskt
-import java.util.*
 
 class activityEnvioCuotas_laravel : AppCompatActivity() {
   private lateinit var binding: ActivityCargaDatosLaravelBinding

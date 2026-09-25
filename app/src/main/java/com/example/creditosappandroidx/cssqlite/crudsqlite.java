@@ -1,7 +1,6 @@
 package com.example.creditosappandroidx.cssqlite;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.example.creditosappandroidx.cswebservice.creditocliente;
@@ -13,7 +12,6 @@ import com.example.creditosappandroidx.cswebservice.moras_Table;
 import com.example.creditosappandroidx.cswebservice.solicitud_credito;
 import com.example.creditosappandroidx.cswebservice.solicitud_credito_Table;
 import com.example.creditosappandroidx.models.cobrador;
-import com.example.creditosappandroidx.models.cobrador_Table;
 import com.example.creditosappandroidx.models.planPago;
 import com.example.creditosappandroidx.models.planPago_Table;
 import com.raizlabs.android.dbflow.config.FlowConfig;

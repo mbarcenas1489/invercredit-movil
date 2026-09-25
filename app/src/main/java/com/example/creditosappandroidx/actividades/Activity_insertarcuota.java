@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,16 +17,11 @@ import com.example.creditosappandroidx.cswebservice.cuotas;
 import com.example.creditosappandroidx.cswebservice.datospublicos;
 import com.example.creditosappandroidx.cswebservice.moras;
 import com.google.android.material.textfield.TextInputEditText;
-import com.mazenrashed.printooth.Printooth;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import cswebservice.datospublicoskt;
 

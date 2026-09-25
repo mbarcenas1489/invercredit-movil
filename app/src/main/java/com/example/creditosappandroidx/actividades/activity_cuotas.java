@@ -3,7 +3,6 @@ package com.example.creditosappandroidx.actividades;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,15 +28,11 @@ import com.example.creditosappandroidx.cswebservice.cspublic;
 import com.example.creditosappandroidx.cswebservice.cuotas;
 import com.example.creditosappandroidx.cswebservice.datospublicos;
 import com.example.creditosappandroidx.cswebservice.moras;
-import com.example.creditosappandroidx.interfaces.inteferfazGuardar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.logging.Logger;
 
 import cswebservice.datospublicoskt;
 

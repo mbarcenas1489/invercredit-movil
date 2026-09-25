@@ -2,12 +2,10 @@ package com.example.creditosappandroidx.cswebservice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.creditosappandroidx.R;
@@ -24,7 +22,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.content.Context.WIFI_SERVICE;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 

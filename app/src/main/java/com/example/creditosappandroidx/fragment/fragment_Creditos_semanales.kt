@@ -2,7 +2,6 @@ package com.example.creditosappandroidx.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +11,10 @@ import androidx.core.view.isVisible
 import com.example.creditosappandroidx.Adaptadores.adaptador_cliente_semanal
 import com.example.creditosappandroidx.BuildConfig
 import com.example.creditosappandroidx.MainActivity
-import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.actividades.Cuotas.ActivityTabCuotas
 import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.creditocliente
 import com.example.creditosappandroidx.cswebservice.datospublicos
-import com.example.creditosappandroidx.databinding.ActivityMainBinding
 import com.example.creditosappandroidx.databinding.FragmentCreditosSemanalesBinding
 import cswebservice.datospublicoskt
 import kotlinx.coroutines.Dispatchers

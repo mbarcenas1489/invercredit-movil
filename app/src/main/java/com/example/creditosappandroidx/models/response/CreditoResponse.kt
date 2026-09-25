@@ -1,8 +1,5 @@
 package com.example.creditosappandroidx.models.response
 import com.example.creditosappandroidx.cswebservice.creditocliente
-import com.example.creditosappandroidx.models.CreditoClienteModel
-import com.example.creditosappandroidx.models._PlanesPago
-import com.example.creditosappandroidx.models.cobrador
 import com.google.gson.annotations.SerializedName
 
  data class CreditoResponse(
