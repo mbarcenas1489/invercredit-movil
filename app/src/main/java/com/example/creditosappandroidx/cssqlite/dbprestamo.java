@@ -6,5 +6,5 @@ import com.raizlabs.android.dbflow.annotation.Database;
 public class dbprestamo {
   public static final String NAME = "creditos";
 
-  public static final int VERSION = 5;
+  public static final int VERSION = 6;
 }

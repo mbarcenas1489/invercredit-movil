@@ -22,6 +22,7 @@ import java.util.List;
 
 import cswebservice.datospublicoskt;
 import okhttp3.ResponseBody;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -175,40 +176,17 @@ public class crudWebservice_laravel {
     });
   }
 
-  public void enviarCuotasServidor_mejorada(List<cuotas> listacuotas, View progressBar) {
+  public Call<CuotasResponse> crearEnvioCuotas(List<cuotas> listacuotas) {
     String json = new Gson().toJson(listacuotas);
-
-    interfacesCreditoLaravel interfazCuotas =
-      retrofit.create(interfacesCreditoLaravel.class);
-    Call<CuotasResponse> response = interfazCuotas.envioCuotas(json, idcobrador);
-    response.enqueue(new Callback<CuotasResponse>() {
-      @Override
-      public void onResponse(Call<CuotasResponse> call, Response<CuotasResponse> response) {
-        ocultarProgreso(progressBar);
-        CuotasResponse body = response.body();
-        if (response.isSuccessful() && body != null && !body.getError()
-          && body.getDatos() != null && !body.getDatos().isEmpty()) {
-          Toast.makeText(context, "Cuotas Enviadas correctamente", Toast.LENGTH_SHORT).show();
-        } else {
-          Toast.makeText(context, "No se pudo confirmar el envío de cuotas (HTTP "
-            + response.code() + ")", Toast.LENGTH_LONG).show();
-        }
-      }
-
-      @Override
-      public void onFailure(Call<CuotasResponse> call, Throwable t) {
-        ocultarProgreso(progressBar);
-        Log.e("EnvioCuotas", "Error al guardar cuotas", t);
-        Toast.makeText(context, "Error al guardar Cuotas" + t.getMessage(), Toast.LENGTH_SHORT).show();
-      }
-    });
-
-  }
-
-  private static void ocultarProgreso(View progressBar) {
-    if (progressBar != null && progressBar.isAttachedToWindow()) {
-      progressBar.setVisibility(View.GONE);
-    }
+    // Este endpoint no es idempotente: no repetir un POST automáticamente.
+    OkHttpClient client = new OkHttpClient.Builder()
+      .retryOnConnectionFailure(false)
+      .followRedirects(false)
+      .followSslRedirects(false)
+      .build();
+    interfacesCreditoLaravel interfazCuotas = retrofit.newBuilder().client(client).build()
+      .create(interfacesCreditoLaravel.class);
+    return interfazCuotas.envioCuotas(json, idcobrador);
   }
 
   public void guardarCuotaServer(cuotas c) {

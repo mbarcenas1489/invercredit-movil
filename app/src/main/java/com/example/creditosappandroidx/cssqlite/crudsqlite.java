@@ -300,7 +300,10 @@ public class crudsqlite {
   }
 
   public ArrayList<cuotas> consultaCuotasNuevas() {
-    ArrayList<cuotas> array = (ArrayList<cuotas>) SQLite.select().from(cuotas.class).where(cuotas_Table.cuentaid.is(0)).queryList();
+    ArrayList<cuotas> array = new ArrayList<>(SQLite.select().from(cuotas.class)
+      .where(cuotas_Table.cuentaid.is(0))
+      .and(cuotas_Table.enviada.is(false))
+      .and(cuotas_Table.envioSinConfirmar.is(false)).queryList());
     return array;
   }
 
