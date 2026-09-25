@@ -65,8 +65,10 @@ internal object CargaPorLotes {
       Log.e("CargaPorLotes", "Error al cargar $nombre", e)
       withContext(Dispatchers.Main) {
         cantidad.text = "Error al cargar $nombre"
-        Snackbar.make(view, "Error al cargar $nombre: ${e.message ?: "error inesperado"}",
-          Snackbar.LENGTH_LONG).show()
+        Snackbar.make(
+          view, "Error al cargar $nombre: ${e.message ?: "error inesperado"}",
+          Snackbar.LENGTH_LONG
+        ).show()
       }
     }
   }

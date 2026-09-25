@@ -1,4 +1,3 @@
-
 package com.example.creditosappandroidx.cswebservice;
 
 import android.content.Context;
@@ -17,8 +16,10 @@ import com.example.creditosappandroidx.cssqlite.crudsqlite;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import cswebservice.datospublicoskt;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,6 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 import com.example.creditosappandroidx.models.response.CuotasResponse;
 
 
@@ -74,7 +76,7 @@ public class crudWebservice_laravel {
             cc = response.body().get(i);
             lista.add(cc);
             cc.save();
-            textView.setText("Cargando Clientes..."+(i*100)/response.body().size()+"%");
+            textView.setText("Cargando Clientes..." + (i * 100) / response.body().size() + "%");
           }
 //          textView.setBackground(ContextCompat.getDrawable(context, R.drawable.textview_round));
           textView.setBackgroundColor(R.color.verde);
@@ -95,7 +97,6 @@ public class crudWebservice_laravel {
     });
 
 
-
   }
 
   public void consultarCuotasAServidor(Context context, TextView textView) {
@@ -110,7 +111,7 @@ public class crudWebservice_laravel {
           for (int i = 0; i < response.body().size(); i++) {
             cuotas c = response.body().get(i);
             c.save();
-            textView.setText("Cargando Cuotas..."+(i*100)/response.body().size()+"%");
+            textView.setText("Cargando Cuotas..." + (i * 100) / response.body().size() + "%");
           }
           textView.setBackgroundColor(R.color.verde);
           textView.setText("Cuotas Cargadas...100%");
@@ -174,9 +175,8 @@ public class crudWebservice_laravel {
     });
   }
 
-  public void enviarCuotasServidor_mejorada(List<cuotas> listacuotas, View view) {
+  public void enviarCuotasServidor_mejorada(List<cuotas> listacuotas, View progressBar) {
     String json = new Gson().toJson(listacuotas);
-    json = json;
 
     interfacesCreditoLaravel interfazCuotas =
       retrofit.create(interfacesCreditoLaravel.class);
@@ -184,19 +184,31 @@ public class crudWebservice_laravel {
     response.enqueue(new Callback<CuotasResponse>() {
       @Override
       public void onResponse(Call<CuotasResponse> call, Response<CuotasResponse> response) {
-        final crudsqlite crud = new crudsqlite(context);
-        if (response.code() == 200 && response.body().getDatos().size() > 0) {
+        ocultarProgreso(progressBar);
+        CuotasResponse body = response.body();
+        if (response.isSuccessful() && body != null && !body.getError()
+          && body.getDatos() != null && !body.getDatos().isEmpty()) {
           Toast.makeText(context, "Cuotas Enviadas correctamente", Toast.LENGTH_SHORT).show();
-          datospublicoskt.INSTANCE.getProgressbar().setVisibility(View.GONE);
+        } else {
+          Toast.makeText(context, "No se pudo confirmar el envío de cuotas (HTTP "
+            + response.code() + ")", Toast.LENGTH_LONG).show();
         }
       }
+
       @Override
       public void onFailure(Call<CuotasResponse> call, Throwable t) {
-        Log.e("Error", t.getMessage());
+        ocultarProgreso(progressBar);
+        Log.e("EnvioCuotas", "Error al guardar cuotas", t);
         Toast.makeText(context, "Error al guardar Cuotas" + t.getMessage(), Toast.LENGTH_SHORT).show();
       }
     });
 
+  }
+
+  private static void ocultarProgreso(View progressBar) {
+    if (progressBar != null && progressBar.isAttachedToWindow()) {
+      progressBar.setVisibility(View.GONE);
+    }
   }
 
   public void guardarCuotaServer(cuotas c) {

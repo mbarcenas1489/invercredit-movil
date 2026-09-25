@@ -67,6 +67,7 @@ public class crudWebservice {
           snackbar.show();
         }
       }
+
       @Override
       public void onFailure(Call<ArrayList<creditocliente>> call, Throwable t) {
       }
@@ -92,11 +93,13 @@ public class crudWebservice {
           }
         }
       }
+
       @Override
       public void onFailure(Call<ArrayList<creditocliente>> call, Throwable t) {
       }
     });
   }
+
   public void consultarMora_by_Idprestamo(int idprestamo) {
     final crudsqlite crud = new crudsqlite(context);
     interfacecredito interfazcuota = retrofit.create(interfacecredito.class);
@@ -112,6 +115,7 @@ public class crudWebservice {
           }
         }
       }
+
       @Override
       public void onFailure(Call<ArrayList<moras>> call, Throwable t) {
         Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -135,12 +139,14 @@ public class crudWebservice {
           }
         }
       }
+
       @Override
       public void onFailure(Call<ArrayList<cuotas>> call, Throwable t) {
         Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
       }
     });
   }
+
   public void BuscarCuotasNuevas(final TextView etcuotasnuevas) {
     final crudsqlite crudsqlite = new crudsqlite(context);
     interfacecredito interfasproducto = retrofit.create(interfacecredito.class);

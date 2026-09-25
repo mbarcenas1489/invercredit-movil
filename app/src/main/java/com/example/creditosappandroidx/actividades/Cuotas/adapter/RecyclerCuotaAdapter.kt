@@ -11,7 +11,8 @@ import com.example.creditosappandroidx.cswebservice.cuotas
 import com.example.creditosappandroidx.databinding.RowlistviewBinding
 import java.text.SimpleDateFormat
 
-class RecyclerCuotaAdapter(val context: Context, val lista: ArrayList<cuotas>) : RecyclerView.Adapter<RecyclerCuotaAdapter.ViewHolder>() {
+class RecyclerCuotaAdapter(val context: Context, val lista: ArrayList<cuotas>) :
+  RecyclerView.Adapter<RecyclerCuotaAdapter.ViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val binding = RowlistviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -31,7 +32,9 @@ class RecyclerCuotaAdapter(val context: Context, val lista: ArrayList<cuotas>) :
     else {
       holder.binding!!.tvPendiente.setText("")
     }
-    if (format2.format(cuota.obtenerfecha()).equals(cspublic.getfechahoy_yyyy_MM_dd(), ignoreCase = true)) {
+    if (format2.format(cuota.obtenerfecha())
+        .equals(cspublic.getfechahoy_yyyy_MM_dd(), ignoreCase = true)
+    ) {
       holder.binding.lvLbfecha.setTextColor(Color.parseColor("#3b92ea"))
       holder.binding.lvLbmonto.setTextColor(Color.parseColor("#3b92ea"))
       holder.binding.imgEditcuota.visibility = View.GONE

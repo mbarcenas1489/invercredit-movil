@@ -28,79 +28,75 @@ import cswebservice.datospublicoskt;
 
 public class Activity_insertarcuota extends AppCompatActivity {
 
-    EditText ctfecha;
-    TextView textfecha;
+  EditText ctfecha;
+  TextView textfecha;
 
-    TextInputEditText ctmonto;
-    RadioButton rbmora;
-    private static final String CERO = "0";
-    private static final String BARRA = "/";
-
-
-
-    public final Calendar c = Calendar.getInstance();
-
-    //Variables para obtener la fecha
-    final int mes = c.get(Calendar.MONTH);
-    final int dia = c.get(Calendar.DAY_OF_MONTH);
-    final int anio = c.get(Calendar.YEAR);
+  TextInputEditText ctmonto;
+  RadioButton rbmora;
+  private static final String CERO = "0";
+  private static final String BARRA = "/";
 
 
+  public final Calendar c = Calendar.getInstance();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        FlowManager.init(new FlowConfig.Builder(this).build());
-        setContentView( R.layout.activity_insertarcuota);
-        ctfecha=(EditText) findViewById(R.id.ct_fecha);
-        ctmonto=(TextInputEditText)findViewById(R.id.ctmonto1);
-        rbmora=findViewById(R.id.rbmora);
-        textfecha=findViewById(R.id.textfecha);
-
-        ctfecha.setKeyListener(null);
-        if(!datospublicos.creditocliente.getMoneda().equalsIgnoreCase("Cordoba")) {
-            ctmonto.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        }
-
-        textfecha.setText(datospublicoskt.INSTANCE.getfecha_format());
-        //ctfecha.setFocusable(false);
-
-       int montocuota=(int) datospublicos.creditocliente.getMonto_a_pagar()/datospublicos.creditocliente.getPlazo();
-        ctmonto.setText(String.valueOf( montocuota));
-      // Toast.makeText(this,String.valueOf(datospublicos.creditocliente.getPlazo()),Toast.LENGTH_SHORT).show();
-        LocalDateTime ahora;
-
-        Calendar c1 = Calendar.getInstance();
-        String mes="";
-        String dia="";
-        if((c1.get(Calendar.MONTH)+1)<10)
-            mes="0"+(c1.get(Calendar.MONTH)+1);
-        else
-            mes= String.valueOf(c1.get(Calendar.MONTH)+1);
+  //Variables para obtener la fecha
+  final int mes = c.get(Calendar.MONTH);
+  final int dia = c.get(Calendar.DAY_OF_MONTH);
+  final int anio = c.get(Calendar.YEAR);
 
 
-        if(c1.get(Calendar.DAY_OF_MONTH)<10)
-            dia="0"+c1.get(Calendar.DAY_OF_MONTH);
-        else
-            dia=String.valueOf( c1.get(Calendar.DAY_OF_MONTH));
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-        ctfecha.setText(c1.get(Calendar.YEAR)+"-"+mes+"-"+dia);
-      //  Toast.makeText(this,"instando cuota",Toast.LENGTH_LONG).show();
+    FlowManager.init(new FlowConfig.Builder(this).build());
+    setContentView(R.layout.activity_insertarcuota);
+    ctfecha = (EditText) findViewById(R.id.ct_fecha);
+    ctmonto = (TextInputEditText) findViewById(R.id.ctmonto1);
+    rbmora = findViewById(R.id.rbmora);
+    textfecha = findViewById(R.id.textfecha);
 
+    ctfecha.setKeyListener(null);
+    if (!datospublicos.creditocliente.getMoneda().equalsIgnoreCase("Cordoba")) {
+      ctmonto.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
     }
 
+    textfecha.setText(datospublicoskt.INSTANCE.getfecha_format());
+    //ctfecha.setFocusable(false);
 
-    public void btguardarcuota_onclick(View view)
-    {
-        cuotas c=new cuotas();
-        moras m =new moras();
-        if(ctfecha.getText().length()==0 || ctmonto.getText().length()==0)
-        {
-            Toast.makeText(this,"Llene todos los campos",Toast.LENGTH_SHORT).show();
-            return;
+    int montocuota = (int) datospublicos.creditocliente.getMonto_a_pagar() / datospublicos.creditocliente.getPlazo();
+    ctmonto.setText(String.valueOf(montocuota));
+    // Toast.makeText(this,String.valueOf(datospublicos.creditocliente.getPlazo()),Toast.LENGTH_SHORT).show();
+    LocalDateTime ahora;
 
-        }
+    Calendar c1 = Calendar.getInstance();
+    String mes = "";
+    String dia = "";
+    if ((c1.get(Calendar.MONTH) + 1) < 10)
+      mes = "0" + (c1.get(Calendar.MONTH) + 1);
+    else
+      mes = String.valueOf(c1.get(Calendar.MONTH) + 1);
+
+
+    if (c1.get(Calendar.DAY_OF_MONTH) < 10)
+      dia = "0" + c1.get(Calendar.DAY_OF_MONTH);
+    else
+      dia = String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
+
+    ctfecha.setText(c1.get(Calendar.YEAR) + "-" + mes + "-" + dia);
+    //  Toast.makeText(this,"instando cuota",Toast.LENGTH_LONG).show();
+
+  }
+
+
+  public void btguardarcuota_onclick(View view) {
+    cuotas c = new cuotas();
+    moras m = new moras();
+    if (ctfecha.getText().length() == 0 || ctmonto.getText().length() == 0) {
+      Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show();
+      return;
+
+    }
        /* if(datospublicos.cuotahoy==true && rbmora.isChecked()==false)
         {
             Toast.makeText(this, "Ya se ha registrado una cuota el dia de hoy", Toast.LENGTH_SHORT).show();
@@ -108,76 +104,71 @@ public class Activity_insertarcuota extends AppCompatActivity {
         }*/
 
 
-        if(rbmora.isChecked())
-        {
-            m.setMonto(Float.parseFloat(ctmonto.getText().toString()));
-            m.setFecha(ctfecha.getText().toString());
-            m.setIdprestamo(datospublicos.creditocliente.getPrestamoid());
+    if (rbmora.isChecked()) {
+      m.setMonto(Float.parseFloat(ctmonto.getText().toString()));
+      m.setFecha(ctfecha.getText().toString());
+      m.setIdprestamo(datospublicos.creditocliente.getPrestamoid());
 
 
-            c.setSaldo(datospublicos.creditocliente.getMonto_pendiente());
+      c.setSaldo(datospublicos.creditocliente.getMonto_pendiente());
 
 
-            m.save();
+      m.save();
 
-        }
-        else {
-            c.setMonto(Float.parseFloat(ctmonto.getText().toString()));
-            c.setFecha(ctfecha.getText().toString());
-            c.setPrestamo_prestamoid(datospublicos.creditocliente.getPrestamoid());
+    } else {
+      c.setMonto(Float.parseFloat(ctmonto.getText().toString()));
+      c.setFecha(ctfecha.getText().toString());
+      c.setPrestamo_prestamoid(datospublicos.creditocliente.getPrestamoid());
 
-            c.setMora(1);
-            c.setSaldo(datospublicos.creditocliente.getMonto_pendiente());
+      c.setMora(1);
+      c.setSaldo(datospublicos.creditocliente.getMonto_pendiente());
 
-            c.setMora(0);
-            c.setSaldo(0);
-
+      c.setMora(0);
+      c.setSaldo(0);
 
 
-            if( c.save())
-            {
+      if (c.save()) {
               /*  datospublicoskt.INSTANCE.imprimir_recibo(c.getFecha(),c.getMonto(),
                         datospublicos.creditocliente.getNombre()+" "+datospublicos.creditocliente.getApellido()
                 c.getSaldo());*/
 
-            }
-        }
-        datospublicoskt.INSTANCE.setCuota_insertada(true);
-
-
-        this.finish();
-
+      }
     }
+    datospublicoskt.INSTANCE.setCuota_insertada(true);
 
-    private void obtenerFecha(){
-        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                //Esta variable lo que realiza es aumentar en uno el mes ya que comienza desde 0 = enero
-                final int mesActual = month + 1;
-                //Formateo el día obtenido: antepone el 0 si son menores de 10
-                String diaFormateado = (dayOfMonth < 10)? CERO + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
-                //Formateo el mes obtenido: antepone el 0 si son menores de 10
-                String mesFormateado = (mesActual < 10)? CERO + String.valueOf(mesActual):String.valueOf(mesActual);
-                //Muestro la fecha con el formato deseado
-                ctfecha.setText(year +"-" + mesFormateado + "-" + diaFormateado);
 
-               // messelect=mesActual;
-                //diaselect=(dayOfMonth < 10)? CERO + dayOfMonth;
+    this.finish();
 
-            }
-            //Estos valores deben ir en ese orden, de lo contrario no mostrara la fecha actual
-            /**
-             *También puede cargar los valores que usted desee
-             */
-        },anio, mes, dia);
-        //Muestro el widget
-        recogerFecha.show();
+  }
 
-    }
+  private void obtenerFecha() {
+    DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+      @Override
+      public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        //Esta variable lo que realiza es aumentar en uno el mes ya que comienza desde 0 = enero
+        final int mesActual = month + 1;
+        //Formateo el día obtenido: antepone el 0 si son menores de 10
+        String diaFormateado = (dayOfMonth < 10) ? CERO + String.valueOf(dayOfMonth) : String.valueOf(dayOfMonth);
+        //Formateo el mes obtenido: antepone el 0 si son menores de 10
+        String mesFormateado = (mesActual < 10) ? CERO + String.valueOf(mesActual) : String.valueOf(mesActual);
+        //Muestro la fecha con el formato deseado
+        ctfecha.setText(year + "-" + mesFormateado + "-" + diaFormateado);
 
-    public void btcancelaronclick(View view)
-    {
-        this.finish();
-    }
+        // messelect=mesActual;
+        //diaselect=(dayOfMonth < 10)? CERO + dayOfMonth;
+
+      }
+      //Estos valores deben ir en ese orden, de lo contrario no mostrara la fecha actual
+      /**
+       *También puede cargar los valores que usted desee
+       */
+    }, anio, mes, dia);
+    //Muestro el widget
+    recogerFecha.show();
+
+  }
+
+  public void btcancelaronclick(View view) {
+    this.finish();
+  }
 }

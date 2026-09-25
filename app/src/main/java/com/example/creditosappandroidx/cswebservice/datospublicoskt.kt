@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.util.Log
-import android.view.View
 import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.*
 import com.example.creditosappandroidx.models.cobrador
@@ -23,7 +22,6 @@ object datospublicoskt {
 
 
   var context_cuotas_por_cliente: Context? = null
-  var progressbar: View? = null
   var entorno_prueba = false
   var monto_pendiente: Float = 0f
   var cuota_insertada: Boolean = false
@@ -105,7 +103,13 @@ object datospublicoskt {
   }
 
   fun imprimir_recibo(
-    fecha: String, monto: Float, nombre_cliente: String, saldo: Float, saldoAnterior: Float, moneda: String, fechafin: String
+    fecha: String,
+    monto: Float,
+    nombre_cliente: String,
+    saldo: Float,
+    saldoAnterior: Float,
+    moneda: String,
+    fechafin: String
   ) {
     if (monto == 0f)
       return;
@@ -457,9 +461,11 @@ object datospublicoskt {
       0 -> {
         listacompleta = crud.consultaTodo().toMutableList()
       }
+
       1 -> {
         listacompleta = crud.all_credito_by_forma_pago(forma_pago).toMutableList()
       }
+
       2 -> {
         listacompleta = crud.all_credito_by_forma_pago(forma_pago).toMutableList()
         if (listacompleta.size > 0) {
@@ -468,9 +474,11 @@ object datospublicoskt {
           listacompleta = listaordenada
         }
       }
+
       3 -> {
         listacompleta = crud.all_credito_by_forma_pago(forma_pago).toMutableList()
       }
+
       4 -> {
         listacompleta = crud.all_credito_by_forma_pago(forma_pago).toMutableList()
 
@@ -484,9 +492,11 @@ object datospublicoskt {
       0 -> {
         listacompleta = crud.consultaTodo().toMutableList()
       }
+
       1 -> {
         listacompleta = crud.all_credito_by_cobrador(forma_pago, cobradorSelectId).toMutableList()
       }
+
       2 -> {
         listacompleta = crud.all_credito_by_cobrador(forma_pago, cobradorSelectId).toMutableList()
         if (listacompleta.size > 0) {
@@ -495,9 +505,11 @@ object datospublicoskt {
           listacompleta = listaordenada
         }
       }
+
       3 -> {
         listacompleta = crud.all_credito_by_cobrador(forma_pago, cobradorSelectId).toMutableList()
       }
+
       4 -> {
         listacompleta = crud.all_credito_by_cobrador(forma_pago, cobradorSelectId).toMutableList()
       }
@@ -518,11 +530,11 @@ object datospublicoskt {
     val pref: SharedPreferences = PreferenceManager
       .getDefaultSharedPreferences(context)
     val cobrador = pref.getString("idcobrador", "1")
-    if(cobrador?.toInt() == 505){
+    if (cobrador?.toInt() == 505) {
       nombreCobrador = "Administrador";
       return
     }
-    if(listacobradores.size > 0 ) {
+    if (listacobradores.size > 0) {
       var c = listacobradores.filter { it.idServer == cobrador?.toInt() }
       nombreCobrador = c[0].nombre;
     }
@@ -535,7 +547,7 @@ object datospublicoskt {
     listacobradores.clear()
     listaNombreCobradores.clear()
 
-    for (item in lista){
+    for (item in lista) {
       listacobradores.add(item)
       listaNombreCobradores.add(item.nombre)
     }

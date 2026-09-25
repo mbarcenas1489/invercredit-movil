@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 
 class PageViewModel : ViewModel() {
 
-    private val _index = MutableLiveData<Int>()
+  private val _index = MutableLiveData<Int>()
 
-    fun setIndex(index: Int) {
-        _index.value = index
-    }
+  fun setIndex(index: Int) {
+    _index.value = index
+  }
 }

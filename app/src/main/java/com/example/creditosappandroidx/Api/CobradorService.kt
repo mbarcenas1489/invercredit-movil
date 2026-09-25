@@ -15,8 +15,10 @@ object CobradorService {
 
   fun ObtenerCobradores(view: View, textViewPorcentaje: TextView, textViewCantidad: TextView) {
     CargaPorLotes.cargar("cobradores", view, textViewPorcentaje, textViewCantidad) {
-      val body = CargaPorLotes.cuerpo(getRetrofit().create(InterfaceCobrador::class.java)
-        .ObtenerCobradores())
+      val body = CargaPorLotes.cuerpo(
+        getRetrofit().create(InterfaceCobrador::class.java)
+          .ObtenerCobradores()
+      )
       check(!body.error) { "El servidor reportó un error al obtener los cobradores" }
       body.datos
     }

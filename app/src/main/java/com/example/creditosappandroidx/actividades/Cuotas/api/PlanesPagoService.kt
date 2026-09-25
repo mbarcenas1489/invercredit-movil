@@ -14,10 +14,16 @@ object PlanesPagoService {
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-  fun ObtenerPlanesPagoPorCobrador(view: View, textViewPorcentaje: TextView, textViewCantidad: TextView) {
+  fun ObtenerPlanesPagoPorCobrador(
+    view: View,
+    textViewPorcentaje: TextView,
+    textViewCantidad: TextView
+  ) {
     CargaPorLotes.cargar("planes de pago", view, textViewPorcentaje, textViewCantidad) {
-      val body = CargaPorLotes.cuerpo(getRetrofit().create(planesPagosInterface::class.java)
-        .ObtenerPlanesPagoPorCobrador(datospublicoskt.idCobrador.toInt()))
+      val body = CargaPorLotes.cuerpo(
+        getRetrofit().create(planesPagosInterface::class.java)
+          .ObtenerPlanesPagoPorCobrador(datospublicoskt.idCobrador.toInt())
+      )
       check(!body.error) { "El servidor reportó un error al obtener los planes de pago" }
       body.datos.map { plan ->
         planPago().apply {

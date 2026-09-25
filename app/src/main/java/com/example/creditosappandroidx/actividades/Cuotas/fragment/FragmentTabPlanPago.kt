@@ -43,7 +43,9 @@ class FragmentTabPlanPago : Fragment() {
 
     binding.textviewNombreCliente.setText(datospublicos.creditocliente.nombre + " " + datospublicos.creditocliente.apellido)
     binding.tvMonto.setText(datospublicos.creditocliente.monto.toString())
-    binding.tvPlanPagoPagado.setText(datospublicos.creditocliente.getabonado(view.context).toString())
+    binding.tvPlanPagoPagado.setText(
+      datospublicos.creditocliente.getabonado(view.context).toString()
+    )
     binding.tvInteres.setText(datospublicos.creditocliente.interes.toString())
     binding.tvPlanPagoPendiente.setText(datospublicos.creditocliente.pendiente.toString())
     return view

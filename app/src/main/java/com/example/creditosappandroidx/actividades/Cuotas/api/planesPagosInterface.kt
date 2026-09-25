@@ -6,5 +6,5 @@ import retrofit2.http.*
 
 interface planesPagosInterface {
   @GET("api/planPago/ObtenerPlanPagoActivoPorCobrador/{idCobrador}")
-  suspend fun ObtenerPlanesPagoPorCobrador(@Path("idCobrador") idCobrador: Int) : Response<PlanesPagoResponse>
+  suspend fun ObtenerPlanesPagoPorCobrador(@Path("idCobrador") idCobrador: Int): Response<PlanesPagoResponse>
 }

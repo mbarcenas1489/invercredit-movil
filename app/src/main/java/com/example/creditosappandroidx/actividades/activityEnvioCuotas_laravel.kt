@@ -31,10 +31,6 @@ class activityEnvioCuotas_laravel : AppCompatActivity() {
     binding.tvCantidadCuotasNuevas.setText(cuotasBD.size.toString())
 
     binding.btenviarCuotas.setOnClickListener {
-      binding.llProgressBar.root.visibility = View.VISIBLE
-      Toast.makeText(applicationContext, "Inicinado envio de cuotas", Toast.LENGTH_SHORT)
-        .show()
-
       val crudweb_laravel = crudWebservice_laravel(application)
 
       if (cuotasBD.size == 0) {
@@ -42,10 +38,13 @@ class activityEnvioCuotas_laravel : AppCompatActivity() {
         snack.show()
         return@setOnClickListener
       }
+      binding.llProgressBar.root.visibility = View.VISIBLE
+      Toast.makeText(applicationContext, "Iniciando envío de cuotas", Toast.LENGTH_SHORT)
+        .show()
       if (cuotasBD.size > 0) {
         crudweb_laravel.enviarCuotasServidor_mejorada(
           cuotasBD,
-          binding.contrainEnviarCuotas
+          binding.llProgressBar.root
         )
       }
       if (morasBD.size > 0) {

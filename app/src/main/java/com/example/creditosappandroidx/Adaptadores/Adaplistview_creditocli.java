@@ -17,92 +17,81 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Adaplistview_creditocli extends BaseAdapter
-{
+public class Adaplistview_creditocli extends BaseAdapter {
 
-    private final Context cont;
-    private final ArrayList<creditocliente> listacredito;
-    crudsqlite sqlite;
+  private final Context cont;
+  private final ArrayList<creditocliente> listacredito;
+  crudsqlite sqlite;
 
-    public Adaplistview_creditocli(Context cont, ArrayList<creditocliente> listacredito) {
-        this.cont = cont;
-        this.listacredito = listacredito;
-        sqlite=new crudsqlite(cont);
-    }
+  public Adaplistview_creditocli(Context cont, ArrayList<creditocliente> listacredito) {
+    this.cont = cont;
+    this.listacredito = listacredito;
+    sqlite = new crudsqlite(cont);
+  }
 
-    @Override
-    public int getCount() {
-        return listacredito.size();
-    }
+  @Override
+  public int getCount() {
+    return listacredito.size();
+  }
 
-    @Override
-    public Object getItem(int i) {
-        return listacredito.get(i);
-    }
+  @Override
+  public Object getItem(int i) {
+    return listacredito.get(i);
+  }
 
-    @Override
-    public long getItemId(int i)
-    {
-        return 0;
-    }
+  @Override
+  public long getItemId(int i) {
+    return 0;
+  }
 
-    @Override
-    public View getView(int i, View view, ViewGroup parent)
-    {
-        LayoutInflater inflater = (LayoutInflater) cont
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  @Override
+  public View getView(int i, View view, ViewGroup parent) {
+    LayoutInflater inflater = (LayoutInflater) cont
+      .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate( R.layout.rowlistview_creditocli, parent, false);
+    View rowView = inflater.inflate(R.layout.rowlistview_creditocli, parent, false);
 
 
-        creditocliente c= listacredito.get(i);
-        cuotas ultima_cuota=sqlite.Get_Ultima_Cuota(c.getPrestamoid());
+    creditocliente c = listacredito.get(i);
+    cuotas ultima_cuota = sqlite.Get_Ultima_Cuota(c.getPrestamoid());
 
-        TextView textnombre = (TextView) rowView.findViewById(R.id.et_listcri_nombre);
-        TextView textmonto = (TextView) rowView.findViewById(R.id.et_listcri_monto);
-        TextView textabonado = (TextView) rowView.findViewById(R.id.et_listcri_abonado);
-        TextView textpendiente = (TextView) rowView.findViewById(R.id.et_listcri_pendiente);
-        TextView textorden=(TextView)rowView.findViewById(R.id.etorden);
-        TextView textimg=(TextView)rowView.findViewById(R.id.et_ico_cuotadia);
-        TextView textcuotadia=(TextView)rowView.findViewById(R.id.et_cuotadeldia);
-        TextView textfechacredito=(TextView)rowView.findViewById(R.id.et_fechacredito);
-        TextView text_estado=(TextView)rowView.findViewById(R.id.et_estado_credito);
+    TextView textnombre = (TextView) rowView.findViewById(R.id.et_listcri_nombre);
+    TextView textmonto = (TextView) rowView.findViewById(R.id.et_listcri_monto);
+    TextView textabonado = (TextView) rowView.findViewById(R.id.et_listcri_abonado);
+    TextView textpendiente = (TextView) rowView.findViewById(R.id.et_listcri_pendiente);
+    TextView textorden = (TextView) rowView.findViewById(R.id.etorden);
+    TextView textimg = (TextView) rowView.findViewById(R.id.et_ico_cuotadia);
+    TextView textcuotadia = (TextView) rowView.findViewById(R.id.et_cuotadeldia);
+    TextView textfechacredito = (TextView) rowView.findViewById(R.id.et_fechacredito);
+    TextView text_estado = (TextView) rowView.findViewById(R.id.et_estado_credito);
 
-      //  ImageView btexpandir= rowView.findViewById(R.id.btexpandir);
+    //  ImageView btexpandir= rowView.findViewById(R.id.btexpandir);
 
-        TextView textfechafincredito=(TextView)rowView.findViewById(R.id.et_fechafincredito);
-        TextView textnumerocuotas=(TextView)rowView.findViewById(R.id.et_num_cuotas);
-        Date fechahoy=new Date();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        textnombre.setText(c.getNombre() + " " + c.getApellido());
+    TextView textfechafincredito = (TextView) rowView.findViewById(R.id.et_fechafincredito);
+    TextView textnumerocuotas = (TextView) rowView.findViewById(R.id.et_num_cuotas);
+    Date fechahoy = new Date();
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    textnombre.setText(c.getNombre() + " " + c.getApellido());
 
-        if(ultima_cuota!=null)
-        {
-            if(c.obtener_dias_dias_atrasados()>0 && c.obtener_dias_dias_atrasados()<=10)
-            {
-                text_estado.setText("P-"+c.obtener_dias_dias_atrasados());
+    if (ultima_cuota != null) {
+      if (c.obtener_dias_dias_atrasados() > 0 && c.obtener_dias_dias_atrasados() <= 10) {
+        text_estado.setText("P-" + c.obtener_dias_dias_atrasados());
 
-            }
-            else
-                if(c.getMalo()==1)
-                {
-                    text_estado.setText("M");
-                }
-                else
-                {
-                    text_estado.setVisibility(View.GONE);
-                    int dias_atrasados = ultima_cuota.obtener_dias_dias_atrasados();
+      } else if (c.getMalo() == 1) {
+        text_estado.setText("M");
+      } else {
+        text_estado.setVisibility(View.GONE);
+        int dias_atrasados = ultima_cuota.obtener_dias_dias_atrasados();
 
-                    if (dias_atrasados > 0 && dias_atrasados <= 10)
-                        {
-                            textnombre.setText(c.getNombre() + " " + c.getApellido() + " <" + dias_atrasados+">");
-
-                        }
-
-
-                }
+        if (dias_atrasados > 0 && dias_atrasados <= 10) {
+          textnombre.setText(c.getNombre() + " " + c.getApellido() + " <" + dias_atrasados + ">");
 
         }
+
+
+      }
+
+    }
 
         /*//Codigo para cambiar de color cuando no haya dado cuotas
          if(ultima_cuota!=null) {
@@ -124,70 +113,63 @@ public class Adaplistview_creditocli extends BaseAdapter
         */
 
 
-        float abonado=sqlite.totalcuota_by_idprestamo(c.getPrestamoid());
-        float moras=sqlite.total_moras_by_idprestamo(c.getPrestamoid());
+    float abonado = sqlite.totalcuota_by_idprestamo(c.getPrestamoid());
+    float moras = sqlite.total_moras_by_idprestamo(c.getPrestamoid());
 
-        textmonto.setText(String.valueOf(c.getMonto_a_pagar()));
-        textpendiente.setText(String.valueOf((c.getMonto_a_pagar()-abonado)+moras));
-        textabonado.setText(String.valueOf(c.getabonado(cont)));
-        textorden.setText(String.valueOf(c.getOrden()));
+    textmonto.setText(String.valueOf(c.getMonto_a_pagar()));
+    textpendiente.setText(String.valueOf((c.getMonto_a_pagar() - abonado) + moras));
+    textabonado.setText(String.valueOf(c.getabonado(cont)));
+    textorden.setText(String.valueOf(c.getOrden()));
 
-       // textfechafincredito.setVisibility(View.GONE);
-        //textcuotadia.setVisibility(View.GONE);
-        //textfechacredito.setVisibility(View.GONE);
-        //textnumerocuotas.setVisibility(View.GONE);
-
-
-            textfechacredito.setText(c.getFechainicial());
+    // textfechafincredito.setVisibility(View.GONE);
+    //textcuotadia.setVisibility(View.GONE);
+    //textfechacredito.setVisibility(View.GONE);
+    //textnumerocuotas.setVisibility(View.GONE);
 
 
-            textfechafincredito.setText(c.fechafin());
+    textfechacredito.setText(c.getFechainicial());
 
 
-
-        textnumerocuotas.setText("# Cuotas: "+String.valueOf(c.cuotas_Abonadas(rowView.getContext())));
-        textimg.setText("");
+    textfechafincredito.setText(c.fechafin());
 
 
-
-        //comprobar si hay una couta el dia de hoy
-        crudsqlite crudsqlite=new crudsqlite(rowView.getContext());
-        ArrayList<cuotas> listacuotas=null;
-
-            listacuotas=crudsqlite.consultacuotaByPrestamoID(c.getPrestamoid());
-        if(listacuotas!=null) {
-            if(listacuotas.size()>0) {
-
-                // if (dateFormat.format(fechahoy).equalsIgnoreCase(listacuotas.get(listacuotas.size() - 1).getFecha()))
-                if (dateFormat.format(fechahoy).equalsIgnoreCase(listacuotas.get(listacuotas.size() - 1).getfechaFormat()))
-
-                {
-                   // textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
-                    textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_ok, 0, 0, 0);
+    textnumerocuotas.setText("# Cuotas: " + String.valueOf(c.cuotas_Abonadas(rowView.getContext())));
+    textimg.setText("");
 
 
-                    textcuotadia.setText("Cuota:"+String.valueOf(listacuotas.get(listacuotas.size() - 1).getMonto()));
+    //comprobar si hay una couta el dia de hoy
+    crudsqlite crudsqlite = new crudsqlite(rowView.getContext());
+    ArrayList<cuotas> listacuotas = null;
 
-                } else {
-                   //textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.close, 0, 0, 0);
+    listacuotas = crudsqlite.consultacuotaByPrestamoID(c.getPrestamoid());
+    if (listacuotas != null) {
+      if (listacuotas.size() > 0) {
 
-                    textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cancel, 0, 0, 0);
+        // if (dateFormat.format(fechahoy).equalsIgnoreCase(listacuotas.get(listacuotas.size() - 1).getFecha()))
+        if (dateFormat.format(fechahoy).equalsIgnoreCase(listacuotas.get(listacuotas.size() - 1).getfechaFormat())) {
+          // textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check, 0, 0, 0);
+          textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_ok, 0, 0, 0);
 
-                    textcuotadia.setText("Cuota:0");
 
-                }
-            }
-            else {
-                textcuotadia.setText("Cuota:0");
-                textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cancel, 0, 0, 0);
+          textcuotadia.setText("Cuota:" + String.valueOf(listacuotas.get(listacuotas.size() - 1).getMonto()));
 
-            }
+        } else {
+          //textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.close, 0, 0, 0);
+
+          textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cancel, 0, 0, 0);
+
+          textcuotadia.setText("Cuota:0");
+
         }
+      } else {
+        textcuotadia.setText("Cuota:0");
+        textimg.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_cancel, 0, 0, 0);
+
+      }
+    }
 
 
-
-
-        //Evento cllick del boton expandir
+    //Evento cllick del boton expandir
       /*  btexpandir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -213,10 +195,8 @@ public class Adaplistview_creditocli extends BaseAdapter
         });*/
 
 
-
-
-        return rowView;
-    }
+    return rowView;
+  }
 
 
 }

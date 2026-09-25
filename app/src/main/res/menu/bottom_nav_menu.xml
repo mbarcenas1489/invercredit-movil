@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_money"
-        android:title="Recaudado" />
+  <item
+    android:id="@+id/navigation_home"
+    android:icon="@drawable/ic_money"
+    android:title="Recaudado" />
 
-    <item
-        android:id="@+id/navigation_creditos_diarios"
-        android:icon="@drawable/ic_person"
-        android:title="Clientes" />
+  <item
+    android:id="@+id/navigation_creditos_diarios"
+    android:icon="@drawable/ic_person"
+    android:title="Clientes" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Cofiguraciones" />
-
+  <item
+    android:id="@+id/navigation_notifications"
+    android:icon="@drawable/ic_settings_black_24dp"
+    android:title="Cofiguraciones" />
 
 
 </menu>

@@ -33,4 +33,4 @@ data class CreditoClienteModel(
   @SerializedName("correo") var correo: String,
   @SerializedName("pendiente") var pendiente: Float,
 
-)
+  )

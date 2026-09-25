@@ -11,7 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.cswebservice.creditocliente
 
-class adaptador_cliente_listview(var context: Context?, var listacompleta: MutableList<creditocliente>) : BaseAdapter() {
+class adaptador_cliente_listview(
+  var context: Context?,
+  var listacompleta: MutableList<creditocliente>
+) : BaseAdapter() {
   private val mInflator: LayoutInflater
 
   init {

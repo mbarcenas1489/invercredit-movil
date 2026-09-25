@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".actividades.Activity_CargarDatos"
-    tools:layout_editor_absoluteY="25dp">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/linearLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".actividades.Activity_CargarDatos"
+  tools:layout_editor_absoluteY="25dp">
 
 
-    <ImageView
-        android:id="@+id/img_actualizar_credito_cliente"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+  <ImageView
+    android:id="@+id/img_actualizar_credito_cliente"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
 
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_udpate" />
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="64dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/ic_udpate" />
 
-    <ImageView
-        android:id="@+id/iv_cargarcuotas"
-        android:layout_width="64dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
-        android:onClick="im_cargarcuotas_onclick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_actualizar_credito_cliente"
-        app:srcCompat="@drawable/ic_cuota" />
+  <ImageView
+    android:id="@+id/iv_cargarcuotas"
+    android:layout_width="64dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="52dp"
+    android:onClick="im_cargarcuotas_onclick"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/img_actualizar_credito_cliente"
+    app:srcCompat="@drawable/ic_cuota" />
 
-    <TextView
+  <TextView
 
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="16dp"
-        android:text="Cargar Cuotas"
-        android:textColor="#009688"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_cargarcuotas"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+    android:id="@+id/textView9"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="84dp"
+    android:layout_marginEnd="16dp"
+    android:text="Cargar Cuotas"
+    android:textColor="#009688"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/iv_cargarcuotas"
+    app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
-    <ImageView
-        android:id="@+id/iv_limpiarbd"
-        android:layout_width="61dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:onClick="iv_limpiarbd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_cargarcuotas"
-        app:srcCompat="@drawable/ic_clear_data" />
+  <ImageView
+    android:id="@+id/iv_limpiarbd"
+    android:layout_width="61dp"
+    android:layout_height="60dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="48dp"
+    android:onClick="iv_limpiarbd"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_cargarcuotas"
+    app:srcCompat="@drawable/ic_clear_data" />
 
-    <TextView
-        android:id="@+id/textView37"
+  <TextView
+    android:id="@+id/textView37"
 
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
-        android:text="Actualizar Credito/Cliente"
-        android:textColor="#009688"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_actualizar_credito_cliente"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="88dp"
+    android:layout_marginEnd="16dp"
+    android:text="Actualizar Credito/Cliente"
+    android:textColor="#009688"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/img_actualizar_credito_cliente"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
-        android:text="Limpiar Base de datos"
-        android:textColor="#009688"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_limpiarbd"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+  <TextView
+    android:id="@+id/textView36"
+    android:layout_width="0dp"
+    android:layout_height="25dp"
+    android:layout_marginStart="28dp"
+    android:layout_marginTop="88dp"
+    android:layout_marginEnd="16dp"
+    android:text="Limpiar Base de datos"
+    android:textColor="#009688"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/iv_limpiarbd"
+    app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <Button
-        android:id="@+id/btinsertar_cuotasPruebas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="132dp"
-        android:text="Insertar Cuotas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_limpiarbd" />
+  <Button
+    android:id="@+id/btinsertar_cuotasPruebas"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="68dp"
+    android:layout_marginTop="132dp"
+    android:text="Insertar Cuotas"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/iv_limpiarbd" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

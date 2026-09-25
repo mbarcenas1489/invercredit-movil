@@ -59,7 +59,8 @@ class fragment_creditos_mensuales : Fragment() {
     binding.listviewClienteMensual.adapter = adap_listview
     getcuotaporMes(adap_listview)
 
-   binding.searchViewCreditoMensual.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    binding.searchViewCreditoMensual.setOnQueryTextListener(object :
+      SearchView.OnQueryTextListener {
       override fun onQueryTextSubmit(query: String?): Boolean {
         return true;
       }
@@ -113,7 +114,7 @@ class fragment_creditos_mensuales : Fragment() {
     } else {
       listafiltrada = datospublicoskt.listacompleta?.filter {
         it.nombre.lowercase().contains(charText.lowercase()) ||
-        it.apellido.lowercase().contains(charText.lowercase())
+          it.apellido.lowercase().contains(charText.lowercase())
 
       }?.toMutableList()!!
 
@@ -177,8 +178,10 @@ class fragment_creditos_mensuales : Fragment() {
     var dia = f[0]
     var mes = f[1]
     var anyo = f[2]
-    val meses = arrayOf(" ", "Enero", "Febrero", "Marzo", "Abril",
-      "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nobiembre", "Diciembre")
+    val meses = arrayOf(
+      " ", "Enero", "Febrero", "Marzo", "Abril",
+      "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nobiembre", "Diciembre"
+    )
 
     var mes_int = mes.toInt()
     return dia + " " + meses[mes_int] + " " + anyo

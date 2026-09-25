@@ -17,43 +17,45 @@ import java.util.ArrayList;
 
 
 public class activity_VerMora extends AppCompatActivity {
-    TextView nombre;
-    TextView totalmoras;
-    ListView listViewmoras;
-    Toolbar myToolbar;
-    adaptadorlistview_moras adap;
-    ArrayList<moras> listamoras;
-    com.example.creditosappandroidx.cssqlite.crudsqlite crudsqlite;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView( R.layout.activity__ver_mora);
-        crudsqlite=new crudsqlite(this);
-        nombre=(TextView) findViewById(R.id.tv_nombre_moras);
-        totalmoras=findViewById(R.id.tv_totalmora);
-        totalmoras.setText(String.valueOf(crudsqlite.total_moras_by_idprestamo(datospublicos.creditocliente.getPrestamoid())));
+  TextView nombre;
+  TextView totalmoras;
+  ListView listViewmoras;
+  Toolbar myToolbar;
+  adaptadorlistview_moras adap;
+  ArrayList<moras> listamoras;
+  com.example.creditosappandroidx.cssqlite.crudsqlite crudsqlite;
 
-        nombre.setText(datospublicos.creditocliente.getNombre()+" "+ datospublicos.creditocliente.getApellido());
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity__ver_mora);
+    crudsqlite = new crudsqlite(this);
+    nombre = (TextView) findViewById(R.id.tv_nombre_moras);
+    totalmoras = findViewById(R.id.tv_totalmora);
+    totalmoras.setText(String.valueOf(crudsqlite.total_moras_by_idprestamo(datospublicos.creditocliente.getPrestamoid())));
 
-       // myToolbar = (Toolbar) findViewById(R.id.toolbarmora);
+    nombre.setText(datospublicos.creditocliente.getNombre() + " " + datospublicos.creditocliente.getApellido());
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    // myToolbar = (Toolbar) findViewById(R.id.toolbarmora);
+
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-        //myToolbar.setSubtitle("Moras");
-        //myToolbar.setTitle("Moras Registradas");
+    //myToolbar.setSubtitle("Moras");
+    //myToolbar.setTitle("Moras Registradas");
 
-        listViewmoras=(ListView) findViewById(R.id.listviewmoras);
-        llenarlistview();
-    }
-    private void llenarlistview() {
-        crudsqlite=new crudsqlite(this);
+    listViewmoras = (ListView) findViewById(R.id.listviewmoras);
+    llenarlistview();
+  }
 
-        listamoras=crudsqlite.consultaMORAByPrestamoID(datospublicos.creditocliente.getPrestamoid());
-        // datospublicos.listacuotas=lis;
-        adap=new adaptadorlistview_moras(this,listamoras);
+  private void llenarlistview() {
+    crudsqlite = new crudsqlite(this);
 
-        listViewmoras.setAdapter(adap);
-    }
+    listamoras = crudsqlite.consultaMORAByPrestamoID(datospublicos.creditocliente.getPrestamoid());
+    // datospublicos.listacuotas=lis;
+    adap = new adaptadorlistview_moras(this, listamoras);
+
+    listViewmoras.setAdapter(adap);
+  }
 }

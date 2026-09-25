@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface InterfaceCobrador {
   @GET("api/cobrador/GetAll")
-  suspend  fun ObtenerCobradores(): Response<CobradorResponse?>?
+  suspend fun ObtenerCobradores(): Response<CobradorResponse?>?
 }

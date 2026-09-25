@@ -50,9 +50,11 @@ public class creditocliente extends BaseModel {
 
   @Column
   private int cantidadCuotasAtrasadas;
+
   public int getCantidadCuotasAtrasadas() {
     return cantidadCuotasAtrasadas;
   }
+
   public void setCantidadCuotasAtrasadas(int c) {
     this.cantidadCuotasAtrasadas = c;
   }
@@ -60,6 +62,7 @@ public class creditocliente extends BaseModel {
   public int getId() {
     return id;
   }
+
   public void setId(int id) {
     this.id = id;
   }
@@ -120,6 +123,7 @@ public class creditocliente extends BaseModel {
 
   @Column
   private String cobrador_nombre;
+
   public String getFechafin() {
     return fechafin;
   }
@@ -234,7 +238,8 @@ public class creditocliente extends BaseModel {
     int dias = 0;
 
     if (obtenerfechaFin() != null) {
-      dias = (int) ((fechahoy.getTime() - fincredito.getTime()) / 86400000);    }
+      dias = (int) ((fechahoy.getTime() - fincredito.getTime()) / 86400000);
+    }
     return dias;
 
   }

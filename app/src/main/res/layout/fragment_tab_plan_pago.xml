@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".actividades.Cuotas.fragment.FragmentTabPlanPago">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".actividades.Cuotas.fragment.FragmentTabPlanPago">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="1467dp"
-        android:background="#F8F8F8">
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="1467dp"
+    android:background="#F8F8F8">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_plan_pago"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+          <TextView
+            android:id="@+id/textview_nombre_cliente"
+            android:layout_width="315dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/robotoregular"
+            android:text="Nombre Cliente"
+            android:textAlignment="center"
+            android:textColor="#262626"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/recycler_plan_pago"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textview_nombre_cliente"
-                        android:layout_width="315dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="64dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="32dp"
-                        android:fontFamily="@font/robotoregular"
-                        android:text="Nombre Cliente"
-                        android:textAlignment="center"
-                        android:textColor="#262626"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="14dp"
-                        android:elevation="5dp"
-                        android:src="@drawable/ic_dollar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
+          <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="14dp"
+            android:elevation="5dp"
+            android:src="@drawable/ic_dollar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
 
 
-                    <TextView
-                      android:id="@+id/tv_monto"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginStart="16dp"
-                      android:layout_marginTop="16dp"
-                      android:fontFamily="@font/robotolight"
-                      android:text="TextView"
-                      android:textColor="#000000"
-                      android:textSize="14sp"
-                      app:layout_constraintStart_toEndOf="@+id/imageView5"
-                      app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
+          <TextView
+            android:id="@+id/tv_monto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/robotolight"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="236dp"
-                        android:layout_marginTop="14dp"
-                        android:src="@drawable/ic_percentage"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
+          <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_percentage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
 
-                    <TextView
-                      android:id="@+id/tv_interes"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginStart="24dp"
-                      android:layout_marginTop="16dp"
-                      android:fontFamily="@font/robotolight"
-                      android:text="TextView"
-                      android:textColor="#000000"
-                      android:textSize="14sp"
-                      app:layout_constraintStart_toEndOf="@+id/imageView6"
-                      app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
+          <TextView
+            android:id="@+id/tv_interes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/robotolight"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/textview_nombre_cliente" />
 
-                    <ImageView
-                        android:id="@+id/tv_pagado"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="24dp"
-                        android:src="@drawable/ic_pagado"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+          <ImageView
+            android:id="@+id/tv_pagado"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_pagado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-                    <TextView
-                      android:id="@+id/tv_plan_pago_pagado"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginStart="16dp"
-                      android:layout_marginTop="30dp"
-                      android:fontFamily="@font/robotolight"
-                      android:text="TextView"
-                      android:textColor="#000000"
-                      android:textSize="14sp"
-                      app:layout_constraintStart_toEndOf="@+id/tv_pagado"
-                      app:layout_constraintTop_toBottomOf="@+id/tv_monto" />
+          <TextView
+            android:id="@+id/tv_plan_pago_pagado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/robotolight"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_pagado"
+            app:layout_constraintTop_toBottomOf="@+id/tv_monto" />
 
-                    <ImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="236dp"
-                        android:layout_marginTop="24dp"
-                        android:src="@drawable/ic_pendiente"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+          <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_pendiente"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-                    <TextView
-                      android:id="@+id/tv_plan_pago_pendiente"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_marginStart="24dp"
-                      android:layout_marginTop="30dp"
-                      android:fontFamily="@font/robotolight"
-                      android:text="TextView"
-                      android:textColor="#B60505"
-                      android:textSize="14sp"
-                      android:textStyle="bold"
-                      app:layout_constraintStart_toEndOf="@+id/imageView8"
-                      app:layout_constraintTop_toBottomOf="@+id/tv_interes" />
+          <TextView
+            android:id="@+id/tv_plan_pago_pendiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/robotolight"
+            android:text="TextView"
+            android:textColor="#B60505"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/tv_interes" />
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.recyclerview.widget.RecyclerView
-              android:id="@+id/recycler_plan_pago"
-              android:layout_width="0dp"
-              android:layout_height="1196dp"
-              android:layout_marginStart="16dp"
-              android:layout_marginTop="200dp"
-              android:layout_marginEnd="16dp"
-              android:layout_marginBottom="8dp"
-              android:background="#F8F8F8"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintHorizontal_bias="0.0"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintVertical_bias="1.0">
-
-            </androidx.recyclerview.widget.RecyclerView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_plan_pago"
+        android:layout_width="0dp"
+        android:layout_height="1196dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#F8F8F8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+      </androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
 
 
-    <!-- TODO: Update blank fragment layout -->
+  <!-- TODO: Update blank fragment layout -->
 
 
 </FrameLayout>

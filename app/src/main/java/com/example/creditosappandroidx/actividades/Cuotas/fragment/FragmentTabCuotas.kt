@@ -37,7 +37,8 @@ class FragmentTabCuotas : Fragment() {
     binding.tvTabCuotasNombrecliente.text =
       datospublicos.creditocliente.nombre + " " + datospublicos.creditocliente.apellido
 
-    binding.recyclerCuotas.layoutManager = LinearLayoutManager(binding.root.context, LinearLayout.VERTICAL, false)
+    binding.recyclerCuotas.layoutManager =
+      LinearLayoutManager(binding.root.context, LinearLayout.VERTICAL, false)
     LlenarListaCuotas()
 //    registerForContextMenu(binding.listViewCuotas!!)
 
@@ -61,13 +62,20 @@ class FragmentTabCuotas : Fragment() {
         pendiente += cuota.getPendiente()
       }
     }
-    datospublicos.creditocliente.monto_pendiente = datospublicos.creditocliente.monto_a_pagar - abonado
+    datospublicos.creditocliente.monto_pendiente =
+      datospublicos.creditocliente.monto_a_pagar - abonado
     datospublicos.creditocliente.save()
     monto_pendiente = pendiente
     binding.tvAbonado.setText(abonado.toString())
-    binding.tvPendiente.setText((datospublicos.creditocliente.monto_a_pagar - abonado + crudsqlite!!.totalMora_by_idprestamo(datospublicos.creditocliente.prestamoid)).toString())
+    binding.tvPendiente.setText(
+      (datospublicos.creditocliente.monto_a_pagar - abonado + crudsqlite!!.totalMora_by_idprestamo(
+        datospublicos.creditocliente.prestamoid
+      )).toString()
+    )
     binding.tvTotal.setText(datospublicos.creditocliente.monto_a_pagar.toString())
-    binding.tvMora.setText(crudsqlite!!.totalMora_by_idprestamo(datospublicos.creditocliente.prestamoid).toString())
+    binding.tvMora.setText(
+      crudsqlite!!.totalMora_by_idprestamo(datospublicos.creditocliente.prestamoid).toString()
+    )
     listaCuotas = crudsqlite!!.consultacuotaByPrestamoID(datospublicos.creditocliente.prestamoid)
 
 //    adap = AdapterCuotas(viewFragment!!.context, listaCuotas!!)
@@ -90,6 +98,7 @@ class FragmentTabCuotas : Fragment() {
         } else {
           fragment_add_cuota().show(childFragmentManager, "Add Nueva Cuota")
         }
+
       2 ->
         if (fecha_en_rango_semanal(datospublicos.ultimaCuota.fecha)) {
           Toast.makeText(viewFragment!!.context, "Abono a Cuota", Toast.LENGTH_SHORT)
@@ -98,6 +107,7 @@ class FragmentTabCuotas : Fragment() {
         } else {
           fragment_add_cuota().show(childFragmentManager, "Add Nueva Cuota")
         }
+
       3 ->
         if (fecha_rango_quincenal(datospublicos.ultimaCuota.fecha)) {
           fragmentAddCuotaAbono().show(childFragmentManager, "Add Nueva Cuota")

@@ -13,7 +13,10 @@ import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.cswebservice.creditocliente
 import cswebservice.datospublicoskt
 
-class adaptador_cliente_mensual(var context: Context?, var listacompleta: MutableList<creditocliente>) : BaseAdapter() {
+class adaptador_cliente_mensual(
+  var context: Context?,
+  var listacompleta: MutableList<creditocliente>
+) : BaseAdapter() {
   private val mInflator: LayoutInflater
 
   init {
