@@ -38,12 +38,6 @@ object datospublicoskt {
   var lista_solicitudes = mutableListOf<solicitud_credito>()
   var texto = ""
   var badge: BadgeDrawable? = null
-
-
-  var badge_credito_diario: BadgeDrawable? = null
-  var badge_credito_semanal: BadgeDrawable? = null
-  var badge_credito_quincenal: BadgeDrawable? = null
-  var badge_credito_mensual: BadgeDrawable? = null
   var pref: SharedPreferences? = null
 
   /*Esta variable servira para controlar la forma en como se conecta la

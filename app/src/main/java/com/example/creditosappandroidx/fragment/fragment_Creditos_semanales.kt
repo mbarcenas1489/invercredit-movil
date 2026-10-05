@@ -60,7 +60,6 @@ class fragment_Creditos_semanales : Fragment() {
     adap_listview = adaptador_cliente_semanal(view.context, datospublicoskt.listacompleta)
 
     binding.listviewClienteSemanal.adapter = adap_listview
-    getcuotaporsemana(adap_listview)
 
     datospublicoskt.primer_dia_semana1()
     datospublicoskt.ultimo_dia_semana()
@@ -112,7 +111,6 @@ class fragment_Creditos_semanales : Fragment() {
   fun getcuotaporsemana(adap: adaptador_cliente_semanal?) {
     GlobalScope.launch(Dispatchers.IO) {
       var sqlite = crudsqlite(context)
-      var cont = 0
       datospublicoskt.listacompleta.forEach({
         val ultima_cuota = sqlite.Get_Ultima_Cuota(it.prestamoid)
 
@@ -120,7 +118,6 @@ class fragment_Creditos_semanales : Fragment() {
           if (datospublicoskt.fecha_en_rango_semanal(ultima_cuota.fecha)) {
             it.cuota_completada = ultima_cuota.pendiente <= 0
             it.pago_cuota_dia = true
-            cont += 1
           } else
             it.pago_cuota_dia = false
         }
@@ -131,7 +128,6 @@ class fragment_Creditos_semanales : Fragment() {
             filter()
           } else
             adap_listview?.notifyDataSetChanged()
-          datospublicoskt.badge_credito_semanal!!.number = datospublicoskt.listacompleta.size - cont
         }
 
       })

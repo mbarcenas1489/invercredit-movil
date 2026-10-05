@@ -127,7 +127,6 @@ class fragment_creditos_mensuales : Fragment() {
 
     GlobalScope.launch(Dispatchers.IO) {
       var sqlite = crudsqlite(context)
-      var cont = 0
 
       datospublicoskt.listacompleta.forEach({
         val ultima_cuota = sqlite.Get_Ultima_Cuota(it.prestamoid)
@@ -136,7 +135,6 @@ class fragment_creditos_mensuales : Fragment() {
           if (datospublicoskt.fechaRangoMensual(ultima_cuota.fecha)) {
             it.cuota_completada = ultima_cuota.pendiente <= 0
             it.pago_cuota_dia = true
-            cont += 1
           } else
             it.pago_cuota_dia = false
         }
@@ -147,7 +145,6 @@ class fragment_creditos_mensuales : Fragment() {
             filter()
           } else
             adap_listview?.notifyDataSetChanged()
-          datospublicoskt.badge_credito_mensual!!.number = datospublicoskt.listacompleta.size - cont
         }
       })
     }

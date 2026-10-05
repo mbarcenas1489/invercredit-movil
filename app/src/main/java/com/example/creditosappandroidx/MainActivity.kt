@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.csnetwork
+import com.example.creditosappandroidx.cswebservice.cuotas
 import com.example.creditosappandroidx.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -17,6 +20,13 @@ import com.raizlabs.android.dbflow.config.FlowConfig
 import com.raizlabs.android.dbflow.config.FlowManager
 import cswebservice.datospublicoskt
 import cswebservice.datospublicoskt.listaNombreCobradores
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
@@ -26,6 +36,7 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
   private lateinit var navController: NavController
   private var tabLayoutSelect = 0
   private var rutaSelect = 0
+  private var creditBadgeJob: Job? = null
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,18 +60,21 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
     val badge = navigationView.getOrCreateBadge(R.id.navigation_home)
 
-    val tab_diario = tabLayout.getTabAt(0)
-    tab_diario?.contentDescription = "0"
+    tabLayout.getTabAt(0)?.contentDescription = "0"
 
     datospublicoskt.badge = badge
     badge.isVisible = true
-    datospublicoskt.badge_credito_diario = binding.tabLayout.getTabAt(0)!!.orCreateBadge
-    datospublicoskt.badge_credito_diario!!.number = 0
+    initializeCreditBadges()
 
     badge.number = 0
     datospublicoskt.actualizar_Badge(this)
     navigationView.setupWithNavController(navController)
     binding.tabLayout.addOnTabSelectedListener(this)
+  }
+
+  override fun onResume() {
+    super.onResume()
+    refreshCreditBadges()
   }
 
   override fun onRestart() {
@@ -117,6 +131,7 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
       ) { dialog, which ->
         datospublicoskt.cobradorSelectId = datospublicoskt.listacobradores[which].idServer
         rutaSelect = which;
+        refreshCreditBadges()
         navController.navigate(R.id.navigation_creditos_diarios)
         binding.tabLayout.getTabAt(0)!!.select()
       }
@@ -128,39 +143,21 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
       0 -> {
         navController.navigate(R.id.navigation_creditos_diarios)
         binding.tabLayout.getTabAt(0)!!.select()
-        if (datospublicoskt.badge_credito_diario == null) {
-          datospublicoskt.badge_credito_diario = binding.tabLayout.getTabAt(0)!!.orCreateBadge
-          datospublicoskt.badge_credito_diario!!.number = 0
-        }
       }
 
       1 -> {
         navController.navigate(R.id.navigation_creditos_semanales)
         binding.tabLayout.getTabAt(1)!!.select()
-        if (datospublicoskt.badge_credito_semanal == null) {
-          datospublicoskt.badge_credito_semanal = binding.tabLayout.getTabAt(1)!!.orCreateBadge
-          datospublicoskt.badge_credito_semanal!!.number = 0
-        }
       }
 
       2 -> {
         navController.navigate(R.id.navigation_creditos_quincenales)
         binding.tabLayout.getTabAt(2)!!.select()
-
-        if (datospublicoskt.badge_credito_quincenal == null) {
-          datospublicoskt.badge_credito_quincenal = binding.tabLayout.getTabAt(2)!!.orCreateBadge
-          datospublicoskt.badge_credito_quincenal!!.number = 0
-        }
       }
 
       3 -> {
         navController.navigate(R.id.navigation_creditos_mensual)
         binding.tabLayout.getTabAt(3)!!.select()
-
-        if (datospublicoskt.badge_credito_mensual == null) {
-          datospublicoskt.badge_credito_mensual = binding.tabLayout.getTabAt(3)!!.orCreateBadge
-          datospublicoskt.badge_credito_mensual!!.number = 0
-        }
       }
     }
   }
@@ -170,6 +167,86 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
   override fun onTabReselected(tab: TabLayout.Tab?) {
   }
+
+  private fun initializeCreditBadges() {
+    repeat(4) { position ->
+      binding.tabLayout.getTabAt(position)?.orCreateBadge?.isVisible = false
+    }
+  }
+
+  private fun refreshCreditBadges() {
+    creditBadgeJob?.cancel()
+    val collectorId = datospublicoskt.cobradorSelectId
+
+    creditBadgeJob = lifecycleScope.launch {
+      val counts = withContext(Dispatchers.IO) {
+        val crud = crudsqlite(applicationContext)
+        val today = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
+        val lastPayments = mutableMapOf<Int, cuotas>()
+
+        crud.ConsultaTodas_CUOTAS().forEach { payment ->
+          val creditId = payment.prestamo_prestamoid
+          val current = lastPayments[creditId]
+          if (current == null || payment.id > current.id) {
+            lastPayments[creditId] = payment
+          }
+        }
+
+        CreditBadgeCounts(
+          daily = pendingCreditCount(crud, 1, collectorId, today, lastPayments),
+          weekly = pendingCreditCount(crud, 2, collectorId, today, lastPayments),
+          biweekly = pendingCreditCount(crud, 3, collectorId, today, lastPayments),
+          monthly = pendingCreditCount(crud, 4, collectorId, today, lastPayments)
+        )
+      }
+
+      updateCreditBadge(0, counts.daily)
+      updateCreditBadge(1, counts.weekly)
+      updateCreditBadge(2, counts.biweekly)
+      updateCreditBadge(3, counts.monthly)
+    }
+  }
+
+  private fun updateCreditBadge(position: Int, number: Int) {
+    binding.tabLayout.getTabAt(position)?.orCreateBadge?.apply {
+      this.number = number
+      isVisible = true
+    }
+  }
+
+  private fun pendingCreditCount(
+    crud: crudsqlite,
+    paymentType: Int,
+    collectorId: Int,
+    today: String,
+    lastPayments: Map<Int, cuotas>
+  ): Int {
+    val credits = if (BuildConfig.BUILD_TYPE == "admin") {
+      crud.all_credito_by_cobrador(paymentType, collectorId)
+    } else {
+      crud.all_credito_by_forma_pago(paymentType)
+    }
+
+    return credits.count { credit ->
+      val lastPayment = lastPayments[credit.prestamoid]
+      lastPayment == null || !runCatching {
+        when (paymentType) {
+          1 -> lastPayment.fecha == today
+          2 -> datospublicoskt.fecha_en_rango_semanal(lastPayment.fecha)
+          3 -> datospublicoskt.fecha_rango_quincenal(lastPayment.fecha)
+          4 -> datospublicoskt.fechaRangoMensual(lastPayment.fecha)
+          else -> false
+        }
+      }.getOrDefault(false)
+    }
+  }
+
+  private data class CreditBadgeCounts(
+    val daily: Int,
+    val weekly: Int,
+    val biweekly: Int,
+    val monthly: Int
+  )
 
   companion object {
     lateinit var tabLayout: TabLayout

@@ -195,18 +195,11 @@ public class crudsqlite {
 
 
   public cuotas Get_Ultima_Cuota(int prestamoid) {
-    ArrayList<cuotas> listafiltrada = new ArrayList<cuotas>();
-    cuotas cuota = null;
-    ArrayList<cuotas> lista =
-      (ArrayList<cuotas>) SQLite.select().from(cuotas.class).queryList();
-
-    if (lista != null && lista.size() > 0) {
-      for (int i = 0; i < lista.size(); i++) {
-        if (lista.get(i).getPrestamo_prestamoid() == prestamoid)
-          cuota = lista.get(i);
-      }
-    }
-    return cuota;
+    return SQLite.select()
+      .from(cuotas.class)
+      .where(cuotas_Table.prestamo_prestamoid.is(prestamoid))
+      .orderBy(cuotas_Table.id, false)
+      .querySingle();
   }
 
   public ArrayList<moras> consultaMORAByPrestamoID(int prestamoid) {

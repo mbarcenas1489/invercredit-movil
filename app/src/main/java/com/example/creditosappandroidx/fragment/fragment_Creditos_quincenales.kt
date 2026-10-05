@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import com.example.creditosappandroidx.Adaptadores.adaptador_cliente_quincenal
 import com.example.creditosappandroidx.BuildConfig
 import com.example.creditosappandroidx.MainActivity
-import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.actividades.Cuotas.ActivityTabCuotas
 import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.creditocliente
@@ -19,13 +19,13 @@ import com.example.creditosappandroidx.cswebservice.datospublicos
 import com.example.creditosappandroidx.databinding.FragmentCreditosQuincenalBinding
 import cswebservice.datospublicoskt
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
 
 class fragment_Creditos_quincenales : Fragment() {
-  private lateinit var binding: FragmentCreditosQuincenalBinding
+  private var _binding: FragmentCreditosQuincenalBinding? = null
+  private val binding get() = _binding!!
 
   var listafiltrada = mutableListOf<creditocliente>()
   var text = ""
@@ -38,14 +38,13 @@ class fragment_Creditos_quincenales : Fragment() {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment__creditos_quincenal, container, false)
+  ): View {
+    _binding = FragmentCreditosQuincenalBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    binding = FragmentCreditosQuincenalBinding.inflate(layoutInflater)
-
     roott = view
     MainActivity.tabLayout.isVisible = true
 
@@ -59,7 +58,6 @@ class fragment_Creditos_quincenales : Fragment() {
     adap_listview = adaptador_cliente_quincenal(view.context, datospublicoskt.listacompleta)
 
     binding.listviewClienteQuincenal.adapter = adap_listview
-    getcuotapordia(adap_listview)
 
     binding.searchViewCreditoQuincenal.setOnQueryTextListener(object :
       SearchView.OnQueryTextListener {
@@ -74,10 +72,8 @@ class fragment_Creditos_quincenales : Fragment() {
           filter()
 
         } else {
-          var adap = adaptador_cliente_quincenal(view.context, datospublicoskt.listacompleta)
-          if (adap != null) {
-            adap.notifyDataSetChanged()
-          }
+          text = ""
+          filter()
         }
         return true
       }
@@ -102,40 +98,43 @@ class fragment_Creditos_quincenales : Fragment() {
   }
 
   override fun onResume() {
-    getcuotapordia(adap_listview)
     super.onResume()
+    getcuotapordia()
   }
 
-  fun getcuotapordia(adap: adaptador_cliente_quincenal?) {
+  override fun onDestroyView() {
+    roott = null
+    _binding = null
+    super.onDestroyView()
+  }
 
-    GlobalScope.launch(Dispatchers.IO) {
-      var sqlite = crudsqlite(context)
+  fun getcuotapordia() {
+    val appContext = requireContext().applicationContext
 
-      var cont = 0
-      datospublicoskt.listacompleta.forEach({
+    viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
+      val sqlite = crudsqlite(appContext)
+
+      datospublicoskt.listacompleta.forEach {
         val ultima_cuota = sqlite.Get_Ultima_Cuota(it.prestamoid)
+        it.pago_cuota_dia = false
         if (ultima_cuota != null) {
           if (datospublicoskt.fecha_rango_quincenal(ultima_cuota.fecha)) {
             it.cuota_completada = ultima_cuota.pendiente <= 0
             it.pago_cuota_dia = true
-            cont += 1
-          } else
-            it.pago_cuota_dia = false
-        }
-        withContext(Dispatchers.Main)
-        {
-          if (binding.searchViewCreditoQuincenal.query.toString().length > 0) {
-            text = binding.searchViewCreditoQuincenal.query.toString();
-            filter()
-          } else {
-            adap_listview?.notifyDataSetChanged()
-            datospublicoskt.badge_credito_quincenal!!.number =
-              datospublicoskt.listacompleta.size - cont
           }
         }
+      }
 
-      })
+      withContext(Dispatchers.Main) {
+        if (_binding == null) return@withContext
 
+        if (binding.searchViewCreditoQuincenal.query.isNotEmpty()) {
+          text = binding.searchViewCreditoQuincenal.query.toString()
+          filter()
+        } else {
+          adap_listview.notifyDataSetChanged()
+        }
+      }
     }
   }
 
@@ -144,27 +143,22 @@ class fragment_Creditos_quincenales : Fragment() {
     datospublicoskt.texto = text
     charText = charText.lowercase()
 
-    if (charText.length == 0 && listafiltrada.size == 0) {
+    if (charText.isEmpty()) {
       text = ""
-      listafiltrada = mutableListOf<creditocliente>()
-      var adap = adaptador_cliente_quincenal(context, datospublicoskt.listacompleta)
-      if (adap != null) {
-        adap.notifyDataSetChanged()
-      }
-      return
+      listafiltrada.clear()
+      adap_listview = adaptador_cliente_quincenal(context, datospublicoskt.listacompleta)
 
     } else {
-      listafiltrada = datospublicoskt.listacompleta?.filter {
-        it.nombre.lowercase().contains(charText.lowercase()) ||
-          it.apellido.lowercase().contains(charText.lowercase())
+      listafiltrada = datospublicoskt.listacompleta.filter {
+        it.nombre.lowercase().contains(charText) ||
+          it.apellido.lowercase().contains(charText)
 
 
-      }?.toMutableList()!!
-
-      var adap = adaptador_cliente_quincenal(context, listafiltrada)
-      binding.listviewClienteQuincenal.adapter = adap
+      }.toMutableList()
+      adap_listview = adaptador_cliente_quincenal(context, listafiltrada)
     }
 
+    binding.listviewClienteQuincenal.adapter = adap_listview
   }
 
   fun getfecha(dias: Int, c: Calendar): String {
