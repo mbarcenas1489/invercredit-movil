@@ -1,7 +1,6 @@
 package com.example.creditosappandroidx.cswebservice;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.creditosappandroidx.cssqlite.crudsqlite;
 import com.example.creditosappandroidx.cssqlite.dbprestamo;

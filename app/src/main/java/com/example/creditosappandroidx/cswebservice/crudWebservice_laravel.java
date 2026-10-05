@@ -1,4 +1,3 @@
-
 package com.example.creditosappandroidx.cswebservice;
 
 import android.content.Context;
@@ -10,25 +9,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 
-import com.example.creditosappandroidx.Api.CobradorService;
 import com.example.creditosappandroidx.R;
 import com.example.creditosappandroidx.actividades.login.loginActivity;
 import com.example.creditosappandroidx.cssqlite.crudsqlite;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import cswebservice.datospublicoskt;
 import okhttp3.ResponseBody;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import com.example.creditosappandroidx.Api.response.cuotasResponse;
+
 import com.example.creditosappandroidx.models.response.CuotasResponse;
 
 
@@ -77,7 +77,7 @@ public class crudWebservice_laravel {
             cc = response.body().get(i);
             lista.add(cc);
             cc.save();
-            textView.setText("Cargando Clientes..."+(i*100)/response.body().size()+"%");
+            textView.setText("Cargando Clientes..." + (i * 100) / response.body().size() + "%");
           }
 //          textView.setBackground(ContextCompat.getDrawable(context, R.drawable.textview_round));
           textView.setBackgroundColor(R.color.verde);
@@ -98,7 +98,6 @@ public class crudWebservice_laravel {
     });
 
 
-
   }
 
   public void consultarCuotasAServidor(Context context, TextView textView) {
@@ -113,7 +112,7 @@ public class crudWebservice_laravel {
           for (int i = 0; i < response.body().size(); i++) {
             cuotas c = response.body().get(i);
             c.save();
-            textView.setText("Cargando Cuotas..."+(i*100)/response.body().size()+"%");
+            textView.setText("Cargando Cuotas..." + (i * 100) / response.body().size() + "%");
           }
           textView.setBackgroundColor(R.color.verde);
           textView.setText("Cuotas Cargadas...100%");
@@ -134,6 +133,10 @@ public class crudWebservice_laravel {
     response.enqueue(new Callback<ResponseBody>() {
       @Override
       public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+        // La respuesta puede llegar cuando la pantalla ya se ha cerrado.
+        if (view == null || !view.isAttachedToWindow()) {
+          return;
+        }
         if (response.code() == 200) {
           Snackbar.make(view, "Hay connexion al servidor", Snackbar.LENGTH_LONG).show();
         } else {
@@ -173,29 +176,17 @@ public class crudWebservice_laravel {
     });
   }
 
-  public void enviarCuotasServidor_mejorada(List<cuotas> listacuotas, View view) {
+  public Call<CuotasResponse> crearEnvioCuotas(List<cuotas> listacuotas) {
     String json = new Gson().toJson(listacuotas);
-    json = json;
-
-    interfacesCreditoLaravel interfazCuotas =
-      retrofit.create(interfacesCreditoLaravel.class);
-    Call<CuotasResponse> response = interfazCuotas.envioCuotas(json, idcobrador);
-    response.enqueue(new Callback<CuotasResponse>() {
-      @Override
-      public void onResponse(Call<CuotasResponse> call, Response<CuotasResponse> response) {
-        final crudsqlite crud = new crudsqlite(context);
-        if (response.code() == 200 && response.body().getDatos().size() > 0) {
-          Toast.makeText(context, "Cuotas Enviadas correctamente", Toast.LENGTH_SHORT).show();
-          datospublicoskt.INSTANCE.getProgressbar().setVisibility(View.GONE);
-        }
-      }
-      @Override
-      public void onFailure(Call<CuotasResponse> call, Throwable t) {
-        Log.e("Error", t.getMessage());
-        Toast.makeText(context, "Error al guardar Cuotas" + t.getMessage(), Toast.LENGTH_SHORT).show();
-      }
-    });
-
+    // Este endpoint no es idempotente: no repetir un POST automáticamente.
+    OkHttpClient client = new OkHttpClient.Builder()
+      .retryOnConnectionFailure(false)
+      .followRedirects(false)
+      .followSslRedirects(false)
+      .build();
+    interfacesCreditoLaravel interfazCuotas = retrofit.newBuilder().client(client).build()
+      .create(interfacesCreditoLaravel.class);
+    return interfazCuotas.envioCuotas(json, idcobrador);
   }
 
   public void guardarCuotaServer(cuotas c) {

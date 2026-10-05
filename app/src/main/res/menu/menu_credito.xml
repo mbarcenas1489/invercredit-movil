@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_credito_mostrarTodos"
-        android:title="Mostrar Todos"
-        android:checkable="true"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <item
+    android:id="@+id/menu_credito_mostrarTodos"
+    android:title="Mostrar Todos"
+    android:checkable="true"
 
-       app:showAsAction="never"
-        app:actionViewClass="android.widget.CheckBox"
-        />
-    <item android:id="@+id/menu_credito_mostrarmorosos"
-        android:title="Mostrar Morosos"
-        android:checkable="true"
+    app:showAsAction="never"
+    app:actionViewClass="android.widget.CheckBox" />
+  <item
+    android:id="@+id/menu_credito_mostrarmorosos"
+    android:title="Mostrar Morosos"
+    android:checkable="true"
 
-        app:showAsAction="never"
-        app:actionViewClass="android.widget.CheckBox"
-        />
-    <item android:id="@+id/menu_credito_mostrarmalos"
-        android:title="Mostrar Malos"
-        android:checkable="true"
+    app:showAsAction="never"
+    app:actionViewClass="android.widget.CheckBox" />
+  <item
+    android:id="@+id/menu_credito_mostrarmalos"
+    android:title="Mostrar Malos"
+    android:checkable="true"
 
-         app:showAsAction="never"
-        app:actionViewClass="android.widget.CheckBox"
-        />
+    app:showAsAction="never"
+    app:actionViewClass="android.widget.CheckBox" />
 </menu>

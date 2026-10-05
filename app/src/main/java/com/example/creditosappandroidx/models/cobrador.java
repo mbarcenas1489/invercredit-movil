@@ -9,12 +9,13 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 @Table(database = dbprestamo.class)
 public class cobrador extends BaseModel {
   @Column
-  @PrimaryKey(autoincrement=true)
+  @PrimaryKey(autoincrement = true)
   private int id;
   @Column
   private int IdServer;
   @Column
   private String Nombre;
+
   public int getId() {
     return id;
   }

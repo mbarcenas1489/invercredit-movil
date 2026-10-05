@@ -1,176 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.home.HomeFragment">
 
 
-    <TextView
-        android:id="@+id/tv_hoy_fecha"
-        android:layout_width="0dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        android:textColor="#009688"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+  <TextView
+    android:id="@+id/tv_hoy_fecha"
+    android:layout_width="0dp"
+    android:layout_height="26dp"
+    android:layout_marginStart="64dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:text="TextView"
+    android:textColor="#009688"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Recaudado C$"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hoy_fecha" />
+  <TextView
+    android:id="@+id/textView2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="24dp"
+    android:text="Recaudado C$"
+    android:textColor="#4CAF50"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_hoy_fecha" />
 
-    <TextView
-        android:id="@+id/tv_hoy_montorecaudado"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:text="C$ 0.0"
-        android:textColor="#0E0E0E"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+  <TextView
+    android:id="@+id/tv_hoy_montorecaudado"
+    android:layout_width="122dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="4dp"
+    android:text="C$ 0.0"
+    android:textColor="#0E0E0E"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:text="Recaudado $"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hoy_fecha" />
+  <TextView
+    android:id="@+id/textView13"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="32dp"
+    android:text="Recaudado $"
+    android:textColor="#4CAF50"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_hoy_fecha" />
 
-    <TextView
-        android:id="@+id/tv_hoy_montodollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="$ 0.0"
-        android:textColor="#0E0E0E"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+  <TextView
+    android:id="@+id/tv_hoy_montodollar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
+    android:text="$ 0.0"
+    android:textColor="#0E0E0E"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="@+id/textView13"
+    app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="# Cuotas"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hoy_montorecaudado" />
+  <TextView
+    android:id="@+id/textView22"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="32dp"
+    android:text="# Cuotas"
+    android:textColor="#4CAF50"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_hoy_montorecaudado" />
 
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="64dp"
-        android:text="# Cuotas"
-        android:textColor="#4CAF50"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hoy_montodollar" />
+  <TextView
+    android:id="@+id/textView32"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
+    android:layout_marginEnd="64dp"
+    android:text="# Cuotas"
+    android:textColor="#4CAF50"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_hoy_montodollar" />
 
-    <TextView
-        android:id="@+id/tv_hoy_num_cordoba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+  <TextView
+    android:id="@+id/tv_hoy_num_cordoba"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
 
-        android:layout_marginTop="4dp"
-        android:text="C$ 0.0"
-        android:textColor="#0E0E0E"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+    android:layout_marginTop="4dp"
+    android:text="C$ 0.0"
+    android:textColor="#0E0E0E"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-    <TextView
-        android:id="@+id/tv_hoy_numDollar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+  <TextView
+    android:id="@+id/tv_hoy_numDollar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:text="$ 0.0"
-        android:textColor="#0E0E0E"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
+    android:text="$ 0.0"
+    android:textColor="#0E0E0E"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="@+id/textView32"
+    app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="184dp"-->
-<!--        android:layout_height="155dp"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        android:src="@drawable/icon_invercredit"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" /> -->
+  <!--    <ImageView-->
+  <!--        android:id="@+id/imageView"-->
+  <!--        android:layout_width="184dp"-->
+  <!--        android:layout_height="155dp"-->
+  <!--        android:layout_marginStart="32dp"-->
+  <!--        android:layout_marginEnd="32dp"-->
+  <!--        android:src="@drawable/icon_invercredit"-->
+  <!--        app:layout_constraintEnd_toEndOf="parent"-->
+  <!--        app:layout_constraintStart_toStartOf="parent"-->
+  <!--        app:layout_constraintTop_toTopOf="parent" /> -->
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView"-->
-    <!--        android:layout_width="184dp"-->
-    <!--        android:layout_height="155dp"-->
-    <!--        android:layout_marginStart="32dp"-->
-    <!--        android:layout_marginEnd="32dp"-->
-    <!--        android:src="@drawable/logo_presta_todo"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+  <!--    <ImageView-->
+  <!--        android:id="@+id/imageView"-->
+  <!--        android:layout_width="184dp"-->
+  <!--        android:layout_height="155dp"-->
+  <!--        android:layout_marginStart="32dp"-->
+  <!--        android:layout_marginEnd="32dp"-->
+  <!--        android:src="@drawable/logo_presta_todo"-->
+  <!--        app:layout_constraintEnd_toEndOf="parent"-->
+  <!--        app:layout_constraintStart_toStartOf="parent"-->
+  <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="141dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
-        android:src="@string/logoApp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="141dp"
+    android:layout_height="122dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="56dp"
+    android:layout_marginEnd="32dp"
+    android:src="@string/logoApp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.432"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="21dp"
-        android:text="Version 23.4.13"
-        android:textColor="#009688"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+  <TextView
+    android:id="@+id/textView55"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="25dp"
+    android:layout_marginBottom="21dp"
+    android:text="Version 23.4.13"
+    android:textColor="#009688"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

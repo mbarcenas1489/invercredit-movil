@@ -2,7 +2,6 @@ package com.example.creditosappandroidx.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +12,10 @@ import com.example.creditosappandroidx.Adaptadores.adaptador_cliente_listview
 import com.example.creditosappandroidx.Adaptadores.adaptador_cliente_mensual
 import com.example.creditosappandroidx.BuildConfig
 import com.example.creditosappandroidx.MainActivity
-import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.actividades.Cuotas.ActivityTabCuotas
 import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.creditocliente
 import com.example.creditosappandroidx.cswebservice.datospublicos
-import com.example.creditosappandroidx.databinding.ActivityMainBinding
 import com.example.creditosappandroidx.databinding.FragmentCreditosMensualesBinding
 import cswebservice.datospublicoskt
 import kotlinx.coroutines.Dispatchers
@@ -62,7 +59,8 @@ class fragment_creditos_mensuales : Fragment() {
     binding.listviewClienteMensual.adapter = adap_listview
     getcuotaporMes(adap_listview)
 
-   binding.searchViewCreditoMensual.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    binding.searchViewCreditoMensual.setOnQueryTextListener(object :
+      SearchView.OnQueryTextListener {
       override fun onQueryTextSubmit(query: String?): Boolean {
         return true;
       }
@@ -102,7 +100,7 @@ class fragment_creditos_mensuales : Fragment() {
   fun filter() {
     var charText = text
     datospublicoskt.texto = text
-    charText = charText.toLowerCase()
+    charText = charText.lowercase()
 
     if (charText.length == 0 && listafiltrada.size == 0) {
       text = ""
@@ -115,8 +113,8 @@ class fragment_creditos_mensuales : Fragment() {
 
     } else {
       listafiltrada = datospublicoskt.listacompleta?.filter {
-        it.nombre.toLowerCase().contains(charText.toLowerCase()) ||
-        it.apellido.toLowerCase().contains(charText.toLowerCase())
+        it.nombre.lowercase().contains(charText.lowercase()) ||
+          it.apellido.lowercase().contains(charText.lowercase())
 
       }?.toMutableList()!!
 
@@ -129,17 +127,14 @@ class fragment_creditos_mensuales : Fragment() {
 
     GlobalScope.launch(Dispatchers.IO) {
       var sqlite = crudsqlite(context)
-      var cont = 0
 
       datospublicoskt.listacompleta.forEach({
         val ultima_cuota = sqlite.Get_Ultima_Cuota(it.prestamoid)
         var calendar = Calendar.getInstance()
         if (ultima_cuota != null) {
-          //  Log.e("fecha1="+ultima_cuota.fecha,"Fecha2="+getfecha(0,calendar))
           if (datospublicoskt.fechaRangoMensual(ultima_cuota.fecha)) {
             it.cuota_completada = ultima_cuota.pendiente <= 0
             it.pago_cuota_dia = true
-            cont += 1
           } else
             it.pago_cuota_dia = false
         }
@@ -150,7 +145,6 @@ class fragment_creditos_mensuales : Fragment() {
             filter()
           } else
             adap_listview?.notifyDataSetChanged()
-          datospublicoskt.badge_credito_mensual!!.number = datospublicoskt.listacompleta.size - cont
         }
       })
     }
@@ -181,8 +175,10 @@ class fragment_creditos_mensuales : Fragment() {
     var dia = f[0]
     var mes = f[1]
     var anyo = f[2]
-    val meses = arrayOf(" ", "Enero", "Febrero", "Marzo", "Abril",
-      "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nobiembre", "Diciembre")
+    val meses = arrayOf(
+      " ", "Enero", "Febrero", "Marzo", "Abril",
+      "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Nobiembre", "Diciembre"
+    )
 
     var mes_int = mes.toInt()
     return dia + " " + meses[mes_int] + " " + anyo

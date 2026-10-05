@@ -2,7 +2,6 @@ package com.example.creditosappandroidx.cswebservice;
 
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.creditosappandroidx.cssqlite.dbprestamo;
 import com.raizlabs.android.dbflow.annotation.Column;
@@ -15,13 +14,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 
 @Table(database = dbprestamo.class)
-public class cuotas extends BaseModel
-{
+public class cuotas extends BaseModel {
     public int getId() {
         return id;
     }
@@ -31,11 +28,18 @@ public class cuotas extends BaseModel
     }
 
     @Column
-    @PrimaryKey(autoincrement=true)
+    @PrimaryKey(autoincrement = true)
     private int id;
 
     @Column
     private int cuentaid;
+
+    // Persisten en SQLite, pero Gson no los incluye en las peticiones ni respuestas.
+    @Column(defaultValue = "0")
+    public transient boolean enviada;
+
+    @Column(defaultValue = "0")
+    public transient boolean envioSinConfirmar;
 
     @Column
     private float monto;
@@ -64,16 +68,6 @@ public class cuotas extends BaseModel
     @Column
     private String fechahora;
 
-   /* @Column
-    private Date fechahora;
-
-    public Date getFechaHora() {
-        return fechahora;
-    }
-
-    public void setFechaHora(Date fechaHora) {
-        this.fechahora = fechaHora;
-    }*/
     @Column
     private int prestamo_prestamoid;
 
@@ -99,31 +93,23 @@ public class cuotas extends BaseModel
         this.saldo = saldo;
     }
 
-    public  int getnumerocuota()
-    {
-        return obtenerfecha().getMonth()+ obtenerfecha().getDay();
-
+    public int getnumerocuota() {
+        return obtenerfecha().getMonth() + obtenerfecha().getDay();
     }
 
-    public  int obtener_dias_dias_atrasados()
-    {
-        Date fecha_ultima_cuota=obtenerfecha();
+    public int obtener_dias_dias_atrasados() {
+        Date fecha_ultima_cuota = obtenerfecha();
         Date fechahoy = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        //fechahoy=dateFormat.parse(fechahoy);
-        int dias=0;
+        int dias = 0;
 
-        if(obtenerfecha()!=null) {
-            dias = (int) (( fechahoy.getTime() -fecha_ultima_cuota.getTime() ) / 86400000);
-
-            Log.e("Comparando Fechas", dateFormat.format(fecha_ultima_cuota) +
-                    "<->" + dateFormat.format(fechahoy) + "<->" + String.valueOf(dias));
+        if (obtenerfecha() != null) {
+            dias = (int) ((fechahoy.getTime() - fecha_ultima_cuota.getTime()) / 86400000);
         }
         return dias;
-
     }
-    public Date obtenerfecha()
-    {
+
+    public Date obtenerfecha() {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
         try {
@@ -132,12 +118,11 @@ public class cuotas extends BaseModel
             e.printStackTrace();
         }
 
-      return  date;
+        return date;
     }
 
-    public String getfechaFormat()
-    {
-        return fecha.replace('-','/');
+    public String getfechaFormat() {
+        return fecha.replace('-', '/');
     }
 
     public int getCuentaid() {
@@ -171,15 +156,14 @@ public class cuotas extends BaseModel
     public void setPrestamo_prestamoid(int prestamo_prestamoid) {
         this.prestamo_prestamoid = prestamo_prestamoid;
     }
-    public creditocliente getprestamo()
-    {
-        ArrayList<creditocliente> listcredito=(ArrayList<creditocliente>) SQLite.select().from(creditocliente.class)
+
+    public creditocliente getprestamo() {
+        ArrayList<creditocliente> listcredito = (ArrayList<creditocliente>) SQLite.select().from(creditocliente.class)
                 .where(creditocliente_Table.prestamoid.is(prestamo_prestamoid)).queryList();
-        if(listcredito==null || listcredito.size()==0)
-        {
-          creditocliente lcuota=new creditocliente();
-            return  lcuota;
+        if (listcredito == null || listcredito.size() == 0) {
+            creditocliente lcuota = new creditocliente();
+            return lcuota;
         }
-        return  listcredito.get(0);
+        return listcredito.get(0);
     }
 }

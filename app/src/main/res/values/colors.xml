@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1D8348</color>
-    <color name="colorPrimaryDark">#225e1a</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="verde">#115c31</color>
-    <color name="cardview">#9CCC65</color>
-    <color name="fonde_cardview">#9DBF62</color>
-    <color name="colorWhite">#FFFFFF</color>
+  <color name="colorPrimary">#1D8348</color>
+  <color name="colorPrimaryDark">#225e1a</color>
+  <color name="colorAccent">#FF4081</color>
+  <color name="verde">#115c31</color>
+  <color name="cardview">#9CCC65</color>
+  <color name="fonde_cardview">#9DBF62</color>
+  <color name="colorWhite">#FFFFFF</color>
 
-    <color name="Azul"> #8e9be1</color>
-    <color name="Naranja"> #F6B04C</color>
-    <color name="Rojo"> #DE0000</color>
-    <color name="negro"> #17202A</color>
-    <color name="azulfuerte"> #3b92ea</color>
+  <color name="Azul">#8e9be1</color>
+  <color name="Naranja">#F6B04C</color>
+  <color name="Rojo">#DE0000</color>
+  <color name="negro">#17202A</color>
+  <color name="azulfuerte">#3b92ea</color>
 
 
-    <color name="dialog_background">#5fa3d0</color>
-    <color name="dialog_button">#f5ef3c</color>
-    <color name="dialog_title">#be3c08</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="orange">#FF3D00</color>
-    <color name="grey">#D9E8E6</color>
+  <color name="dialog_background">#5fa3d0</color>
+  <color name="dialog_button">#f5ef3c</color>
+  <color name="dialog_title">#be3c08</color>
+  <color name="white">#FFFFFFFF</color>
+  <color name="orange">#FF3D00</color>
+  <color name="grey">#D9E8E6</color>
 </resources>

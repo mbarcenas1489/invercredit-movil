@@ -11,18 +11,18 @@ import com.example.creditosappandroidx.actividades.Cuotas.fragment.FragmentTabPl
 private const val NUM_TABS = 3
 
 public class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
-        FragmentStateAdapter(fragmentManager, lifecycle) {
+  FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    override fun getItemCount(): Int {
-        return NUM_TABS
-    }
+  override fun getItemCount(): Int {
+    return NUM_TABS
+  }
 
-    override fun createFragment(position: Int): Fragment {
-        when (position) {
-            0 -> return FragmentTabCuotas()
-            1 -> return FragmentTabPlanPago()
-            2 -> return FragmentDetalleCredito()
-        }
-        return FragmentTabCuotas()
+  override fun createFragment(position: Int): Fragment {
+    when (position) {
+      0 -> return FragmentTabCuotas()
+      1 -> return FragmentTabPlanPago()
+      2 -> return FragmentDetalleCredito()
     }
+    return FragmentTabCuotas()
+  }
 }

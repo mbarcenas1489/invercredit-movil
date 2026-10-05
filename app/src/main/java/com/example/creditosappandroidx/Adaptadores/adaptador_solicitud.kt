@@ -4,36 +4,33 @@ package com.example.creditosappandroidx.Adaptadores
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.creditosappandroidx.R
-import com.example.creditosappandroidx.cssqlite.crudsqlite
 import com.example.creditosappandroidx.cswebservice.solicitud_credito
+
 //import kotlinx.android.synthetic.main.item_solicitud.view.*
 //import org.jetbrains.anko.alert
 
 class adaptador_solicitud(val lista_credito: MutableList<solicitud_credito>) :
-    RecyclerView.Adapter<adaptador_solicitud.Viewholder>() {
-    class Viewholder(itemview: View) : RecyclerView.ViewHolder(itemview) {
+  RecyclerView.Adapter<adaptador_solicitud.Viewholder>() {
+  class Viewholder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 //        val tvnombre: TextView = itemview.tv_solicitud_nombre
 //        val tvmonto: TextView = itemview.tv_solicitud_monto
 //        val img_delete: ImageView = itemview.img_delete_solicitud
 
-    }
+  }
 
-    override fun onCreateViewHolder(p0: ViewGroup, viewType: Int): adaptador_solicitud.Viewholder {
+  override fun onCreateViewHolder(p0: ViewGroup, viewType: Int): adaptador_solicitud.Viewholder {
 
-        val v = LayoutInflater.from(p0.context).inflate(R.layout.item_solicitud, p0, false)
-        return Viewholder(v)
-    }
+    val v = LayoutInflater.from(p0.context).inflate(R.layout.item_solicitud, p0, false)
+    return Viewholder(v)
+  }
 
-    override fun getItemCount(): Int {
-        return lista_credito.size
-    }
+  override fun getItemCount(): Int {
+    return lista_credito.size
+  }
 
-    override fun onBindViewHolder(p0: adaptador_solicitud.Viewholder, pos: Int) {
+  override fun onBindViewHolder(p0: adaptador_solicitud.Viewholder, pos: Int) {
 
 //        var solicitud = lista_credito.get(pos)
 //
@@ -56,5 +53,5 @@ class adaptador_solicitud(val lista_credito: MutableList<solicitud_credito>) :
 //                    //Do something
 //                }
 //            }.show()
-        }
-    }
+  }
+}

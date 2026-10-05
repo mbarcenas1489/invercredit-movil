@@ -8,22 +8,22 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 @Table(database = dbprestamo.class)
 public class planPago extends BaseModel {
-    @Column
-    @PrimaryKey(autoincrement=true)
-    public int id;
+  @Column
+  @PrimaryKey(autoincrement = true)
+  public int id;
 
-    @Column
-    public String fecha_pago;
+  @Column
+  public String fecha_pago;
 
-    @Column
-    public float monto;
+  @Column
+  public float monto;
 
-    @Column
-    public float pagado;
+  @Column
+  public float pagado;
 
-    @Column
-    public float pendiente;
+  @Column
+  public float pendiente;
 
-    @Column
-    public Integer prestamoid;
+  @Column
+  public Integer prestamoid;
 }

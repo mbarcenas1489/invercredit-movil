@@ -2,7 +2,6 @@ package com.example.creditosappandroidx.Adaptadores
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,10 @@ import com.example.creditosappandroidx.R
 import com.example.creditosappandroidx.cswebservice.creditocliente
 import cswebservice.datospublicoskt
 
-class adaptador_cliente_quincenal(var context: Context?, var listacompleta: MutableList<creditocliente>) : BaseAdapter() {
+class adaptador_cliente_quincenal(
+  var context: Context?,
+  var listacompleta: MutableList<creditocliente>
+) : BaseAdapter() {
   private val mInflator: LayoutInflater
 
   init {

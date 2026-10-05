@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+  xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@string/logoApp"
-        android:label="@string/titleApp"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
-        <activity
-            android:name=".actividades.CargarDatos.CargarDatos"
-            android:exported="false" />
-        <!--
-        <activity
-            android:name=".splash_screen"
-            android:exported="true" />
-        -->
-        <activity android:name=".actividades.login.loginActivity" />
-        <activity android:name=".actividades.activityEnvioCuotas_laravel" />
-        <activity
-            android:name=".actividades.MainActivity_tab"
-            android:label="@string/title_activity_main_tab"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".actividades.solicitud_credito.activity_select_cliente" />
-        <activity
-            android:name=".actividades.Cuotas.ActivityTabCuotas"
-            android:exported="false" />
-        <activity
-            android:name=".actividades.solicitud_credito.activity_mostrar_solicitudes"
-            android:label="Desembolsos" />
-        <activity
-            android:name=".actividades.solicitud_credito.activity_datos_credito"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".actividades.solicitud_credito.activity_datoscliente" />
-        <activity android:name=".actividades.solicitud_credito.activity_solicitud_credito" />
-        <activity
-            android:name=".Scrolling.Scrolling_configuracion"
-            android:label="@string/title_activity_scrolling_configuracion"
-            android:theme="@style/AppFullScreenTheme" />
-        <activity android:name=".actividades.Activity_Buscar" />
-        <activity android:name=".actividades.Activity_detallecredito" />
-        <activity android:name="com.example.root.myapplication.activity_creditosVencidos" />
-        <activity android:name=".actividades.Activity_Recaudacionpordia" />
-        <activity android:name=".actividades.Activity_enviarcuotas" />
-        <activity android:name=".actividades.activity_VerMora" />
-        <activity android:name=".actividades.Activity_insertarcuota" />
-        <activity android:name=".actividades.activity_cuotas" />
-        <activity android:name=".actividades.ActivityPreferences" />
-        <activity android:name=".actividades.Activity_CargarDatos" />
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".splash_screen"
-            android:exported="true"
-            android:noHistory="true"
-            android:theme="@style/SplashTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:allowBackup="true"
+    android:icon="@string/logoApp"
+    android:label="@string/titleApp"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    android:usesCleartextTraffic="true"
+    tools:targetApi="m">
+    <activity
+      android:name=".actividades.CargarDatos.CargarDatos"
+      android:exported="false" />
+    <!--
+    <activity
+        android:name=".splash_screen"
+        android:exported="true" />
+    -->
+    <activity android:name=".actividades.login.loginActivity" />
+    <activity android:name=".actividades.activityEnvioCuotas_laravel" />
+    <activity
+      android:name=".actividades.MainActivity_tab"
+      android:label="@string/title_activity_main_tab"
+      android:theme="@style/AppTheme.NoActionBar" />
+    <activity android:name=".actividades.solicitud_credito.activity_select_cliente" />
+    <activity
+      android:name=".actividades.Cuotas.ActivityTabCuotas"
+      android:exported="false" />
+    <activity
+      android:name=".actividades.solicitud_credito.activity_mostrar_solicitudes"
+      android:label="Desembolsos" />
+    <activity
+      android:name=".actividades.solicitud_credito.activity_datos_credito"
+      android:theme="@style/AppTheme" />
+    <activity android:name=".actividades.solicitud_credito.activity_datoscliente" />
+    <activity android:name=".actividades.solicitud_credito.activity_solicitud_credito" />
+    <activity
+      android:name=".Scrolling.Scrolling_configuracion"
+      android:label="@string/title_activity_scrolling_configuracion"
+      android:theme="@style/AppFullScreenTheme" />
+    <activity android:name=".actividades.Activity_Buscar" />
+    <activity android:name=".actividades.Activity_detallecredito" />
+    <activity android:name="com.example.root.myapplication.activity_creditosVencidos" />
+    <activity android:name=".actividades.Activity_Recaudacionpordia" />
+    <activity android:name=".actividades.Activity_enviarcuotas" />
+    <activity android:name=".actividades.activity_VerMora" />
+    <activity android:name=".actividades.Activity_insertarcuota" />
+    <activity android:name=".actividades.activity_cuotas" />
+    <activity android:name=".actividades.ActivityPreferences" />
+    <activity android:name=".actividades.Activity_CargarDatos" />
+    <activity android:name=".MainActivity" />
+    <activity
+      android:name=".splash_screen"
+      android:exported="true"
+      android:noHistory="true"
+      android:theme="@style/SplashTheme">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
 
 </manifest>

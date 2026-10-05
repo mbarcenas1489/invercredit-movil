@@ -8,15 +8,15 @@ import com.raizlabs.android.dbflow.structure.BaseModel
 
 @Table(database = dbprestamo::class)
 public class planesPago
-    (
-    @Column
-    @PrimaryKey(autoincrement = true)
-    var id: Int = 0,
-    @Column var fecha_pago: String,
-    @Column var monto: Float = 0.0f,
-    @Column var pagado: Float = 0.0f,
-    @Column var pendiente: Float = 0.0f,
-    @Column var prestamoid: Int = 0,
+  (
+  @Column
+  @PrimaryKey(autoincrement = true)
+  var id: Int = 0,
+  @Column var fecha_pago: String,
+  @Column var monto: Float = 0.0f,
+  @Column var pagado: Float = 0.0f,
+  @Column var pendiente: Float = 0.0f,
+  @Column var prestamoid: Int = 0,
 ) : BaseModel()
 
 

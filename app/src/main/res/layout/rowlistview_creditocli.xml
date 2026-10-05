@@ -1,147 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/et_listcri_nombre"
-        android:layout_width="282dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="32dp"
-        android:text="nombre"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etorden"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012" />
+  <TextView
+    android:id="@+id/et_listcri_nombre"
+    android:layout_width="282dp"
+    android:layout_height="27dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="32dp"
+    android:text="nombre"
+    android:textColor="@android:color/holo_blue_dark"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/etorden"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.012" />
 
-    <TextView
-        android:id="@+id/et_listcri_monto"
-        android:layout_width="56dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Mont"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/et_listcri_abonado"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
+  <TextView
+    android:id="@+id/et_listcri_monto"
+    android:layout_width="56dp"
+    android:layout_height="17dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="Mont"
+    android:textColor="@android:color/holo_green_dark"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toStartOf="@+id/et_listcri_abonado"
+    app:layout_constraintHorizontal_bias="0.132"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
 
-    <TextView
-        android:id="@+id/et_listcri_abonado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Abonado"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/et_listcri_monto"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
+  <TextView
+    android:id="@+id/et_listcri_abonado"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Abonado"
+    android:textColor="@android:color/holo_orange_dark"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toEndOf="@+id/et_listcri_monto"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
 
-    <TextView
-        android:id="@+id/et_listcri_pendiente"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Pendiente"
-        android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/et_listcri_abonado"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
+  <TextView
+    android:id="@+id/et_listcri_pendiente"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Pendiente"
+    android:textColor="@color/colorPrimary"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toEndOf="@+id/et_listcri_abonado"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
 
-    <TextView
-        android:id="@+id/etorden"
-        android:layout_width="40dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        android:textColorLink="@android:color/background_dark"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+  <TextView
+    android:id="@+id/etorden"
+    android:layout_width="40dp"
+    android:layout_height="27dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="12dp"
+    android:text="TextView"
+    android:textColorLink="@android:color/background_dark"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/et_ico_cuotadia"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        android:text="2222"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/et_listcri_nombre"
-        app:layout_constraintTop_toTopOf="parent" />
+  <TextView
+    android:id="@+id/et_ico_cuotadia"
+    android:layout_width="32dp"
+    android:layout_height="19dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="15dp"
+    android:text="2222"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/et_listcri_nombre"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/et_fechacredito"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_monto" />
+  <TextView
+    android:id="@+id/et_fechacredito"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="12dp"
+    android:text="TextView"
+    android:textSize="12sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_monto" />
 
-    <TextView
-        android:id="@+id/et_num_cuotas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/et_fechafincredito"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_abonado" />
+  <TextView
+    android:id="@+id/et_num_cuotas"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="12dp"
+    android:text="TextView"
+    android:textSize="12sp"
+    app:layout_constraintStart_toEndOf="@+id/et_fechafincredito"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_abonado" />
 
-    <TextView
-        android:id="@+id/et_cuotadeldia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/et_listcri_pendiente"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
+  <TextView
+    android:id="@+id/et_cuotadeldia"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="TextView"
+    android:textSize="12sp"
+    app:layout_constraintStart_toEndOf="@+id/et_listcri_pendiente"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_nombre" />
 
-    <TextView
-        android:id="@+id/et_fechafincredito"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/et_fechacredito"
-        app:layout_constraintTop_toBottomOf="@+id/et_listcri_abonado" />
+  <TextView
+    android:id="@+id/et_fechafincredito"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="12dp"
+    android:text="TextView"
+    android:textSize="12sp"
+    app:layout_constraintStart_toEndOf="@+id/et_fechacredito"
+    app:layout_constraintTop_toBottomOf="@+id/et_listcri_abonado" />
 
-    <TextView
-        android:id="@+id/et_estado_credito"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="M"
-        android:textColor="#009688"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ico_cuotadia" />
+  <TextView
+    android:id="@+id/et_estado_credito"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="24dp"
+    android:text="M"
+    android:textColor="#009688"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/et_ico_cuotadia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
